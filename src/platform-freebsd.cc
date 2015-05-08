@@ -98,7 +98,9 @@ void* OS::Allocate(const size_t requested,
 
 
 void OS::DumpBacktrace() {
+#if 0
   POSIXBacktraceHelper<backtrace, backtrace_symbols>::DumpBacktrace();
+#endif
 }
 
 
@@ -189,7 +191,7 @@ void OS::LogSharedLibraryAddresses(Isolate* isolate) {
     // There may be no filename in this line.  Skip to next.
     if (start_of_path == NULL) continue;
     buffer[bytes_read] = 0;
-    LOG(isolate SharedLibraryEvent(start_of_path, start, end));
+    LOG(isolate, SharedLibraryEvent(start_of_path, start, end));
   }
   close(fd);
 }
