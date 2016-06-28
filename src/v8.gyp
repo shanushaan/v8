@@ -42,7 +42,7 @@
     {
       'target_name': 'v8',
       'dependencies_traverse': 1,
-      'dependencies': ['v8_maybe_snapshot'],
+      'dependencies': ['v8_maybe_snapshot', 'v8_base', 'v8_libbase', 'v8_libplatform'],
       'conditions': [
         ['want_separate_host_toolset==1', {
           'toolsets': ['host', 'target'],
@@ -175,7 +175,7 @@
         }],
       ],
       'dependencies': [
-        'v8_base',
+        'v8_base',  'v8_libbase', 'v8_libplatform',
       ],
       'include_dirs+': [
         '..',
