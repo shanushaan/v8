@@ -1,0 +1,63 @@
+build obj/samples/hello-world.actions_depends.stamp: stamp $
+    obj/src/v8_maybe_snapshot.actions_depends.stamp $
+    obj/src/libv8_libplatform.a obj/third_party/icu/libicui18n.a $
+    obj/third_party/icu/libicuuc.a $
+    obj/src/v8_maybe_snapshot.actions_depends.stamp obj/src/libv8_base.a $
+    obj/src/libv8_libbase.a obj/src/libv8_libsampler.a icudtl.dat $
+    icudtl.dat obj/src/libv8_external_snapshot.a $
+    obj/src/js2c.actions_rules_copies.stamp natives_blob.bin
+
+build obj/samples/hello-world.compile_depends.stamp: stamp $
+    snapshot_blob.bin icudtl.dat snapshot_blob.bin icudtl.dat icudtl.dat $
+    snapshot_blob.bin obj/src/js2c.actions_rules_copies.stamp natives_blob.bin
+
+defines = -DCR_CLANG_REVISION=273743-1 -DV8_TARGET_ARCH_X64 $
+    -DENABLE_GDB_JIT_INTERFACE -DV8_DEPRECATION_WARNINGS $
+    -DV8_IMMINENT_DEPRECATION_WARNINGS -DV8_I18N_SUPPORT $
+    -DV8_USE_EXTERNAL_STARTUP_DATA -DU_USING_ICU_NAMESPACE=0 $
+    -DU_ENABLE_DYLOAD=0 -DU_NOEXCEPT= -DU_STATIC_IMPLEMENTATION $
+    -DENABLE_HANDLE_ZAPPING
+includes = -I../.. -I../../include -I../../third_party/icu/source/i18n $
+    -I../../third_party/icu/source/common
+cflags = -Wall -Werror -Wno-unused-parameter -pthread -pedantic $
+    -Wmissing-field-initializers -Wno-gnu-zero-variadic-macro-arguments $
+    -Wshorten-64-to-32 -fvisibility=hidden -fcolor-diagnostics $
+    -B/home/harsha/v8/third_party/binutils/Linux_x64/Release/bin $
+    -Wno-undefined-var-template $
+    -B/home/harsha/v8/third_party/binutils/Linux_x64/Release/bin $
+    --sysroot=/home/harsha/v8/build/linux/debian_wheezy_amd64-sysroot -m64 $
+    -m64 -fdata-sections -ffunction-sections  -O3 -fdata-sections $
+    -ffunction-sections -O3
+cflags_c = 
+cflags_cc = -Wnon-virtual-dtor -fno-exceptions -fno-rtti -std=gnu++11
+arflags = 
+
+build obj/samples/hello-world.hello-world.o: cxx $
+    ../../samples/hello-world.cc || $
+    obj/samples/hello-world.compile_depends.stamp
+
+ldflags = -B/home/harsha/v8/third_party/binutils/Linux_x64/Release/bin $
+    -pthread -fuse-ld=gold $
+    -B/home/harsha/v8/third_party/binutils/Linux_x64/Release/bin $
+    -fuse-ld=gold $
+    -B/home/harsha/v8/third_party/binutils/Linux_x64/Release/bin $
+    --sysroot=/home/harsha/v8/build/linux/debian_wheezy_amd64-sysroot $
+    -L/home/harsha/v8/build/linux/debian_wheezy_amd64-sysroot/lib/x86_64-linux-gnu $
+    -Wl,-rpath-link=/home/harsha/v8/build/linux/debian_wheezy_amd64-sysroot/lib/x86_64-linux-gnu $
+    -L/home/harsha/v8/build/linux/debian_wheezy_amd64-sysroot/usr/lib/x86_64-linux-gnu $
+    -Wl,-rpath-link=/home/harsha/v8/build/linux/debian_wheezy_amd64-sysroot/usr/lib/x86_64-linux-gnu $
+    -L/home/harsha/v8/build/linux/debian_wheezy_amd64-sysroot/usr/lib/gcc/x86_64-linux-gnu/4.6 $
+    -Wl,-rpath-link=/home/harsha/v8/build/linux/debian_wheezy_amd64-sysroot/usr/lib/gcc/x86_64-linux-gnu/4.6 $
+    -L/home/harsha/v8/build/linux/debian_wheezy_amd64-sysroot/usr/lib $
+    -Wl,-rpath-link=/home/harsha/v8/build/linux/debian_wheezy_amd64-sysroot/usr/lib $
+    -m64 -m64
+libs = -ldl -lrt
+build hello-world: link obj/samples/hello-world.hello-world.o $
+    obj/src/libv8_libplatform.a obj/third_party/icu/libicui18n.a $
+    obj/third_party/icu/libicuuc.a obj/src/libv8_base.a $
+    obj/src/libv8_libbase.a obj/src/libv8_libsampler.a $
+    obj/src/libv8_external_snapshot.a | icudtl.dat natives_blob.bin $
+    obj/src/js2c.actions_rules_copies.stamp $
+    obj/src/v8_maybe_snapshot.actions_depends.stamp || $
+    obj/samples/hello-world.actions_depends.stamp
+  ld = $ldxx

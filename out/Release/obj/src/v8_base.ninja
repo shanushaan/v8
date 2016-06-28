@@ -1,0 +1,982 @@
+defines = -DCR_CLANG_REVISION=273743-1 -DV8_TARGET_ARCH_X64 $
+    -DENABLE_GDB_JIT_INTERFACE -DV8_DEPRECATION_WARNINGS $
+    -DV8_IMMINENT_DEPRECATION_WARNINGS -DV8_I18N_SUPPORT $
+    -DV8_USE_EXTERNAL_STARTUP_DATA -DICU_UTIL_DATA_IMPL=ICU_UTIL_DATA_FILE $
+    -DU_USING_ICU_NAMESPACE=0 -DU_ENABLE_DYLOAD=0 -DU_NOEXCEPT= $
+    -DU_STATIC_IMPLEMENTATION -DENABLE_HANDLE_ZAPPING
+includes = -I../.. -I../../include -I../../third_party/icu/source/i18n $
+    -I../../third_party/icu/source/common
+cflags = -Wall -Werror -Wno-unused-parameter -pthread -pedantic $
+    -Wmissing-field-initializers -Wno-gnu-zero-variadic-macro-arguments $
+    -Wshorten-64-to-32 -fvisibility=hidden -fcolor-diagnostics $
+    -B/home/harsha/v8/third_party/binutils/Linux_x64/Release/bin $
+    -Wno-undefined-var-template $
+    -B/home/harsha/v8/third_party/binutils/Linux_x64/Release/bin $
+    --sysroot=/home/harsha/v8/build/linux/debian_wheezy_amd64-sysroot -m64 $
+    -m64 -fdata-sections -ffunction-sections  -O3 -fdata-sections $
+    -ffunction-sections -O3
+cflags_c = 
+cflags_cc = -Wnon-virtual-dtor -fno-exceptions -fno-rtti -std=gnu++11
+arflags = 
+
+build obj/src/v8_base.accessors.o: cxx ../../src/accessors.cc
+build obj/src/v8_base.address-map.o: cxx ../../src/address-map.cc
+build obj/src/v8_base.allocation.o: cxx ../../src/allocation.cc
+build obj/src/v8_base.allocation-site-scopes.o: cxx $
+    ../../src/allocation-site-scopes.cc
+build obj/src/v8_base.api-experimental.o: cxx ../../src/api-experimental.cc
+build obj/src/v8_base.api.o: cxx ../../src/api.cc
+build obj/src/v8_base.api-arguments.o: cxx ../../src/api-arguments.cc
+build obj/src/v8_base.api-natives.o: cxx ../../src/api-natives.cc
+build obj/src/v8_base.arguments.o: cxx ../../src/arguments.cc
+build obj/src/v8_base.assembler.o: cxx ../../src/assembler.cc
+build obj/src/v8_base.assert-scope.o: cxx ../../src/assert-scope.cc
+build obj/src/ast/v8_base.ast-expression-rewriter.o: cxx $
+    ../../src/ast/ast-expression-rewriter.cc
+build obj/src/ast/v8_base.ast-expression-visitor.o: cxx $
+    ../../src/ast/ast-expression-visitor.cc
+build obj/src/ast/v8_base.ast-literal-reindexer.o: cxx $
+    ../../src/ast/ast-literal-reindexer.cc
+build obj/src/ast/v8_base.ast-numbering.o: cxx ../../src/ast/ast-numbering.cc
+build obj/src/ast/v8_base.ast-value-factory.o: cxx $
+    ../../src/ast/ast-value-factory.cc
+build obj/src/ast/v8_base.ast.o: cxx ../../src/ast/ast.cc
+build obj/src/ast/v8_base.modules.o: cxx ../../src/ast/modules.cc
+build obj/src/ast/v8_base.prettyprinter.o: cxx ../../src/ast/prettyprinter.cc
+build obj/src/ast/v8_base.scopeinfo.o: cxx ../../src/ast/scopeinfo.cc
+build obj/src/ast/v8_base.scopes.o: cxx ../../src/ast/scopes.cc
+build obj/src/ast/v8_base.variables.o: cxx ../../src/ast/variables.cc
+build obj/src/v8_base.background-parsing-task.o: cxx $
+    ../../src/background-parsing-task.cc
+build obj/src/v8_base.bailout-reason.o: cxx ../../src/bailout-reason.cc
+build obj/src/v8_base.basic-block-profiler.o: cxx $
+    ../../src/basic-block-profiler.cc
+build obj/src/v8_base.bignum-dtoa.o: cxx ../../src/bignum-dtoa.cc
+build obj/src/v8_base.bignum.o: cxx ../../src/bignum.cc
+build obj/src/v8_base.bit-vector.o: cxx ../../src/bit-vector.cc
+build obj/src/v8_base.bootstrapper.o: cxx ../../src/bootstrapper.cc
+build obj/src/v8_base.builtins.o: cxx ../../src/builtins.cc
+build obj/src/v8_base.cached-powers.o: cxx ../../src/cached-powers.cc
+build obj/src/v8_base.cancelable-task.o: cxx ../../src/cancelable-task.cc
+build obj/src/v8_base.char-predicates.o: cxx ../../src/char-predicates.cc
+build obj/src/v8_base.code-factory.o: cxx ../../src/code-factory.cc
+build obj/src/v8_base.code-stub-assembler.o: cxx $
+    ../../src/code-stub-assembler.cc
+build obj/src/v8_base.code-stubs.o: cxx ../../src/code-stubs.cc
+build obj/src/v8_base.code-stubs-hydrogen.o: cxx $
+    ../../src/code-stubs-hydrogen.cc
+build obj/src/v8_base.codegen.o: cxx ../../src/codegen.cc
+build obj/src/v8_base.compilation-cache.o: cxx ../../src/compilation-cache.cc
+build obj/src/v8_base.compilation-dependencies.o: cxx $
+    ../../src/compilation-dependencies.cc
+build obj/src/v8_base.compilation-statistics.o: cxx $
+    ../../src/compilation-statistics.cc
+build obj/src/compiler/v8_base.access-builder.o: cxx $
+    ../../src/compiler/access-builder.cc
+build obj/src/compiler/v8_base.access-info.o: cxx $
+    ../../src/compiler/access-info.cc
+build obj/src/compiler/v8_base.all-nodes.o: cxx $
+    ../../src/compiler/all-nodes.cc
+build obj/src/compiler/v8_base.ast-graph-builder.o: cxx $
+    ../../src/compiler/ast-graph-builder.cc
+build obj/src/compiler/v8_base.ast-loop-assignment-analyzer.o: cxx $
+    ../../src/compiler/ast-loop-assignment-analyzer.cc
+build obj/src/compiler/v8_base.basic-block-instrumentor.o: cxx $
+    ../../src/compiler/basic-block-instrumentor.cc
+build obj/src/compiler/v8_base.branch-elimination.o: cxx $
+    ../../src/compiler/branch-elimination.cc
+build obj/src/compiler/v8_base.bytecode-branch-analysis.o: cxx $
+    ../../src/compiler/bytecode-branch-analysis.cc
+build obj/src/compiler/v8_base.bytecode-graph-builder.o: cxx $
+    ../../src/compiler/bytecode-graph-builder.cc
+build obj/src/compiler/v8_base.c-linkage.o: cxx $
+    ../../src/compiler/c-linkage.cc
+build obj/src/compiler/v8_base.checkpoint-elimination.o: cxx $
+    ../../src/compiler/checkpoint-elimination.cc
+build obj/src/compiler/v8_base.code-generator.o: cxx $
+    ../../src/compiler/code-generator.cc
+build obj/src/compiler/v8_base.code-assembler.o: cxx $
+    ../../src/compiler/code-assembler.cc
+build obj/src/compiler/v8_base.common-node-cache.o: cxx $
+    ../../src/compiler/common-node-cache.cc
+build obj/src/compiler/v8_base.common-operator-reducer.o: cxx $
+    ../../src/compiler/common-operator-reducer.cc
+build obj/src/compiler/v8_base.common-operator.o: cxx $
+    ../../src/compiler/common-operator.cc
+build obj/src/compiler/v8_base.control-builders.o: cxx $
+    ../../src/compiler/control-builders.cc
+build obj/src/compiler/v8_base.control-equivalence.o: cxx $
+    ../../src/compiler/control-equivalence.cc
+build obj/src/compiler/v8_base.control-flow-optimizer.o: cxx $
+    ../../src/compiler/control-flow-optimizer.cc
+build obj/src/compiler/v8_base.dead-code-elimination.o: cxx $
+    ../../src/compiler/dead-code-elimination.cc
+build obj/src/compiler/v8_base.effect-control-linearizer.o: cxx $
+    ../../src/compiler/effect-control-linearizer.cc
+build obj/src/compiler/v8_base.escape-analysis.o: cxx $
+    ../../src/compiler/escape-analysis.cc
+build obj/src/compiler/v8_base.escape-analysis-reducer.o: cxx $
+    ../../src/compiler/escape-analysis-reducer.cc
+build obj/src/compiler/v8_base.frame.o: cxx ../../src/compiler/frame.cc
+build obj/src/compiler/v8_base.frame-elider.o: cxx $
+    ../../src/compiler/frame-elider.cc
+build obj/src/compiler/v8_base.frame-states.o: cxx $
+    ../../src/compiler/frame-states.cc
+build obj/src/compiler/v8_base.gap-resolver.o: cxx $
+    ../../src/compiler/gap-resolver.cc
+build obj/src/compiler/v8_base.graph-reducer.o: cxx $
+    ../../src/compiler/graph-reducer.cc
+build obj/src/compiler/v8_base.graph-replay.o: cxx $
+    ../../src/compiler/graph-replay.cc
+build obj/src/compiler/v8_base.graph-trimmer.o: cxx $
+    ../../src/compiler/graph-trimmer.cc
+build obj/src/compiler/v8_base.graph-visualizer.o: cxx $
+    ../../src/compiler/graph-visualizer.cc
+build obj/src/compiler/v8_base.graph.o: cxx ../../src/compiler/graph.cc
+build obj/src/compiler/v8_base.instruction-selector.o: cxx $
+    ../../src/compiler/instruction-selector.cc
+build obj/src/compiler/v8_base.instruction-scheduler.o: cxx $
+    ../../src/compiler/instruction-scheduler.cc
+build obj/src/compiler/v8_base.instruction.o: cxx $
+    ../../src/compiler/instruction.cc
+build obj/src/compiler/v8_base.int64-lowering.o: cxx $
+    ../../src/compiler/int64-lowering.cc
+build obj/src/compiler/v8_base.js-builtin-reducer.o: cxx $
+    ../../src/compiler/js-builtin-reducer.cc
+build obj/src/compiler/v8_base.js-call-reducer.o: cxx $
+    ../../src/compiler/js-call-reducer.cc
+build obj/src/compiler/v8_base.js-context-specialization.o: cxx $
+    ../../src/compiler/js-context-specialization.cc
+build obj/src/compiler/v8_base.js-create-lowering.o: cxx $
+    ../../src/compiler/js-create-lowering.cc
+build obj/src/compiler/v8_base.js-frame-specialization.o: cxx $
+    ../../src/compiler/js-frame-specialization.cc
+build obj/src/compiler/v8_base.js-generic-lowering.o: cxx $
+    ../../src/compiler/js-generic-lowering.cc
+build obj/src/compiler/v8_base.js-global-object-specialization.o: cxx $
+    ../../src/compiler/js-global-object-specialization.cc
+build obj/src/compiler/v8_base.js-graph.o: cxx ../../src/compiler/js-graph.cc
+build obj/src/compiler/v8_base.js-inlining.o: cxx $
+    ../../src/compiler/js-inlining.cc
+build obj/src/compiler/v8_base.js-inlining-heuristic.o: cxx $
+    ../../src/compiler/js-inlining-heuristic.cc
+build obj/src/compiler/v8_base.js-intrinsic-lowering.o: cxx $
+    ../../src/compiler/js-intrinsic-lowering.cc
+build obj/src/compiler/v8_base.js-native-context-specialization.o: cxx $
+    ../../src/compiler/js-native-context-specialization.cc
+build obj/src/compiler/v8_base.js-operator.o: cxx $
+    ../../src/compiler/js-operator.cc
+build obj/src/compiler/v8_base.js-typed-lowering.o: cxx $
+    ../../src/compiler/js-typed-lowering.cc
+build obj/src/compiler/v8_base.jump-threading.o: cxx $
+    ../../src/compiler/jump-threading.cc
+build obj/src/compiler/v8_base.linkage.o: cxx ../../src/compiler/linkage.cc
+build obj/src/compiler/v8_base.liveness-analyzer.o: cxx $
+    ../../src/compiler/liveness-analyzer.cc
+build obj/src/compiler/v8_base.live-range-separator.o: cxx $
+    ../../src/compiler/live-range-separator.cc
+build obj/src/compiler/v8_base.load-elimination.o: cxx $
+    ../../src/compiler/load-elimination.cc
+build obj/src/compiler/v8_base.loop-analysis.o: cxx $
+    ../../src/compiler/loop-analysis.cc
+build obj/src/compiler/v8_base.loop-peeling.o: cxx $
+    ../../src/compiler/loop-peeling.cc
+build obj/src/compiler/v8_base.machine-operator-reducer.o: cxx $
+    ../../src/compiler/machine-operator-reducer.cc
+build obj/src/compiler/v8_base.machine-operator.o: cxx $
+    ../../src/compiler/machine-operator.cc
+build obj/src/compiler/v8_base.memory-optimizer.o: cxx $
+    ../../src/compiler/memory-optimizer.cc
+build obj/src/compiler/v8_base.move-optimizer.o: cxx $
+    ../../src/compiler/move-optimizer.cc
+build obj/src/compiler/v8_base.node-cache.o: cxx $
+    ../../src/compiler/node-cache.cc
+build obj/src/compiler/v8_base.node-marker.o: cxx $
+    ../../src/compiler/node-marker.cc
+build obj/src/compiler/v8_base.node-matchers.o: cxx $
+    ../../src/compiler/node-matchers.cc
+build obj/src/compiler/v8_base.node-properties.o: cxx $
+    ../../src/compiler/node-properties.cc
+build obj/src/compiler/v8_base.node.o: cxx ../../src/compiler/node.cc
+build obj/src/compiler/v8_base.opcodes.o: cxx ../../src/compiler/opcodes.cc
+build obj/src/compiler/v8_base.operation-typer.o: cxx $
+    ../../src/compiler/operation-typer.cc
+build obj/src/compiler/v8_base.operator-properties.o: cxx $
+    ../../src/compiler/operator-properties.cc
+build obj/src/compiler/v8_base.operator.o: cxx ../../src/compiler/operator.cc
+build obj/src/compiler/v8_base.osr.o: cxx ../../src/compiler/osr.cc
+build obj/src/compiler/v8_base.pipeline.o: cxx ../../src/compiler/pipeline.cc
+build obj/src/compiler/v8_base.pipeline-statistics.o: cxx $
+    ../../src/compiler/pipeline-statistics.cc
+build obj/src/compiler/v8_base.raw-machine-assembler.o: cxx $
+    ../../src/compiler/raw-machine-assembler.cc
+build obj/src/compiler/v8_base.redundancy-elimination.o: cxx $
+    ../../src/compiler/redundancy-elimination.cc
+build obj/src/compiler/v8_base.register-allocator.o: cxx $
+    ../../src/compiler/register-allocator.cc
+build obj/src/compiler/v8_base.register-allocator-verifier.o: cxx $
+    ../../src/compiler/register-allocator-verifier.cc
+build obj/src/compiler/v8_base.representation-change.o: cxx $
+    ../../src/compiler/representation-change.cc
+build obj/src/compiler/v8_base.schedule.o: cxx ../../src/compiler/schedule.cc
+build obj/src/compiler/v8_base.scheduler.o: cxx $
+    ../../src/compiler/scheduler.cc
+build obj/src/compiler/v8_base.select-lowering.o: cxx $
+    ../../src/compiler/select-lowering.cc
+build obj/src/compiler/v8_base.simplified-lowering.o: cxx $
+    ../../src/compiler/simplified-lowering.cc
+build obj/src/compiler/v8_base.simplified-operator-reducer.o: cxx $
+    ../../src/compiler/simplified-operator-reducer.cc
+build obj/src/compiler/v8_base.simplified-operator.o: cxx $
+    ../../src/compiler/simplified-operator.cc
+build obj/src/compiler/v8_base.source-position.o: cxx $
+    ../../src/compiler/source-position.cc
+build obj/src/compiler/v8_base.state-values-utils.o: cxx $
+    ../../src/compiler/state-values-utils.cc
+build obj/src/compiler/v8_base.store-store-elimination.o: cxx $
+    ../../src/compiler/store-store-elimination.cc
+build obj/src/compiler/v8_base.tail-call-optimization.o: cxx $
+    ../../src/compiler/tail-call-optimization.cc
+build obj/src/compiler/v8_base.type-hint-analyzer.o: cxx $
+    ../../src/compiler/type-hint-analyzer.cc
+build obj/src/compiler/v8_base.type-hints.o: cxx $
+    ../../src/compiler/type-hints.cc
+build obj/src/compiler/v8_base.typer.o: cxx ../../src/compiler/typer.cc
+build obj/src/compiler/v8_base.value-numbering-reducer.o: cxx $
+    ../../src/compiler/value-numbering-reducer.cc
+build obj/src/compiler/v8_base.verifier.o: cxx ../../src/compiler/verifier.cc
+build obj/src/compiler/v8_base.wasm-compiler.o: cxx $
+    ../../src/compiler/wasm-compiler.cc
+build obj/src/compiler/v8_base.wasm-linkage.o: cxx $
+    ../../src/compiler/wasm-linkage.cc
+build obj/src/compiler/v8_base.zone-pool.o: cxx $
+    ../../src/compiler/zone-pool.cc
+build obj/src/v8_base.compiler.o: cxx ../../src/compiler.cc
+build obj/src/v8_base.context-measure.o: cxx ../../src/context-measure.cc
+build obj/src/v8_base.contexts.o: cxx ../../src/contexts.cc
+build obj/src/v8_base.conversions.o: cxx ../../src/conversions.cc
+build obj/src/v8_base.counters.o: cxx ../../src/counters.cc
+build obj/src/crankshaft/v8_base.compilation-phase.o: cxx $
+    ../../src/crankshaft/compilation-phase.cc
+build obj/src/crankshaft/v8_base.hydrogen-bce.o: cxx $
+    ../../src/crankshaft/hydrogen-bce.cc
+build obj/src/crankshaft/v8_base.hydrogen-canonicalize.o: cxx $
+    ../../src/crankshaft/hydrogen-canonicalize.cc
+build obj/src/crankshaft/v8_base.hydrogen-check-elimination.o: cxx $
+    ../../src/crankshaft/hydrogen-check-elimination.cc
+build obj/src/crankshaft/v8_base.hydrogen-dce.o: cxx $
+    ../../src/crankshaft/hydrogen-dce.cc
+build obj/src/crankshaft/v8_base.hydrogen-dehoist.o: cxx $
+    ../../src/crankshaft/hydrogen-dehoist.cc
+build obj/src/crankshaft/v8_base.hydrogen-environment-liveness.o: cxx $
+    ../../src/crankshaft/hydrogen-environment-liveness.cc
+build obj/src/crankshaft/v8_base.hydrogen-escape-analysis.o: cxx $
+    ../../src/crankshaft/hydrogen-escape-analysis.cc
+build obj/src/crankshaft/v8_base.hydrogen-gvn.o: cxx $
+    ../../src/crankshaft/hydrogen-gvn.cc
+build obj/src/crankshaft/v8_base.hydrogen-infer-representation.o: cxx $
+    ../../src/crankshaft/hydrogen-infer-representation.cc
+build obj/src/crankshaft/v8_base.hydrogen-infer-types.o: cxx $
+    ../../src/crankshaft/hydrogen-infer-types.cc
+build obj/src/crankshaft/v8_base.hydrogen-instructions.o: cxx $
+    ../../src/crankshaft/hydrogen-instructions.cc
+build obj/src/crankshaft/v8_base.hydrogen-load-elimination.o: cxx $
+    ../../src/crankshaft/hydrogen-load-elimination.cc
+build obj/src/crankshaft/v8_base.hydrogen-mark-deoptimize.o: cxx $
+    ../../src/crankshaft/hydrogen-mark-deoptimize.cc
+build obj/src/crankshaft/v8_base.hydrogen-mark-unreachable.o: cxx $
+    ../../src/crankshaft/hydrogen-mark-unreachable.cc
+build obj/src/crankshaft/v8_base.hydrogen-osr.o: cxx $
+    ../../src/crankshaft/hydrogen-osr.cc
+build obj/src/crankshaft/v8_base.hydrogen-range-analysis.o: cxx $
+    ../../src/crankshaft/hydrogen-range-analysis.cc
+build obj/src/crankshaft/v8_base.hydrogen-redundant-phi.o: cxx $
+    ../../src/crankshaft/hydrogen-redundant-phi.cc
+build obj/src/crankshaft/v8_base.hydrogen-removable-simulates.o: cxx $
+    ../../src/crankshaft/hydrogen-removable-simulates.cc
+build obj/src/crankshaft/v8_base.hydrogen-representation-changes.o: cxx $
+    ../../src/crankshaft/hydrogen-representation-changes.cc
+build obj/src/crankshaft/v8_base.hydrogen-sce.o: cxx $
+    ../../src/crankshaft/hydrogen-sce.cc
+build obj/src/crankshaft/v8_base.hydrogen-store-elimination.o: cxx $
+    ../../src/crankshaft/hydrogen-store-elimination.cc
+build obj/src/crankshaft/v8_base.hydrogen-types.o: cxx $
+    ../../src/crankshaft/hydrogen-types.cc
+build obj/src/crankshaft/v8_base.hydrogen-uint32-analysis.o: cxx $
+    ../../src/crankshaft/hydrogen-uint32-analysis.cc
+build obj/src/crankshaft/v8_base.hydrogen.o: cxx $
+    ../../src/crankshaft/hydrogen.cc
+build obj/src/crankshaft/v8_base.lithium-allocator.o: cxx $
+    ../../src/crankshaft/lithium-allocator.cc
+build obj/src/crankshaft/v8_base.lithium-codegen.o: cxx $
+    ../../src/crankshaft/lithium-codegen.cc
+build obj/src/crankshaft/v8_base.lithium.o: cxx $
+    ../../src/crankshaft/lithium.cc
+build obj/src/crankshaft/v8_base.typing.o: cxx ../../src/crankshaft/typing.cc
+build obj/src/v8_base.date.o: cxx ../../src/date.cc
+build obj/src/v8_base.dateparser.o: cxx ../../src/dateparser.cc
+build obj/src/debug/v8_base.debug-evaluate.o: cxx $
+    ../../src/debug/debug-evaluate.cc
+build obj/src/debug/v8_base.debug-frames.o: cxx $
+    ../../src/debug/debug-frames.cc
+build obj/src/debug/v8_base.debug-scopes.o: cxx $
+    ../../src/debug/debug-scopes.cc
+build obj/src/debug/v8_base.debug.o: cxx ../../src/debug/debug.cc
+build obj/src/debug/v8_base.liveedit.o: cxx ../../src/debug/liveedit.cc
+build obj/src/v8_base.deoptimizer.o: cxx ../../src/deoptimizer.cc
+build obj/src/v8_base.disassembler.o: cxx ../../src/disassembler.cc
+build obj/src/v8_base.diy-fp.o: cxx ../../src/diy-fp.cc
+build obj/src/v8_base.dtoa.o: cxx ../../src/dtoa.cc
+build obj/src/v8_base.eh-frame.o: cxx ../../src/eh-frame.cc
+build obj/src/v8_base.elements-kind.o: cxx ../../src/elements-kind.cc
+build obj/src/v8_base.elements.o: cxx ../../src/elements.cc
+build obj/src/v8_base.execution.o: cxx ../../src/execution.cc
+build obj/src/extensions/v8_base.externalize-string-extension.o: cxx $
+    ../../src/extensions/externalize-string-extension.cc
+build obj/src/extensions/v8_base.free-buffer-extension.o: cxx $
+    ../../src/extensions/free-buffer-extension.cc
+build obj/src/extensions/v8_base.gc-extension.o: cxx $
+    ../../src/extensions/gc-extension.cc
+build obj/src/extensions/v8_base.ignition-statistics-extension.o: cxx $
+    ../../src/extensions/ignition-statistics-extension.cc
+build obj/src/extensions/v8_base.statistics-extension.o: cxx $
+    ../../src/extensions/statistics-extension.cc
+build obj/src/extensions/v8_base.trigger-failure-extension.o: cxx $
+    ../../src/extensions/trigger-failure-extension.cc
+build obj/src/v8_base.external-reference-table.o: cxx $
+    ../../src/external-reference-table.cc
+build obj/src/v8_base.factory.o: cxx ../../src/factory.cc
+build obj/src/v8_base.fast-accessor-assembler.o: cxx $
+    ../../src/fast-accessor-assembler.cc
+build obj/src/v8_base.fast-dtoa.o: cxx ../../src/fast-dtoa.cc
+build obj/src/v8_base.field-type.o: cxx ../../src/field-type.cc
+build obj/src/v8_base.fixed-dtoa.o: cxx ../../src/fixed-dtoa.cc
+build obj/src/v8_base.flags.o: cxx ../../src/flags.cc
+build obj/src/v8_base.frames.o: cxx ../../src/frames.cc
+build obj/src/full-codegen/v8_base.full-codegen.o: cxx $
+    ../../src/full-codegen/full-codegen.cc
+build obj/src/v8_base.futex-emulation.o: cxx ../../src/futex-emulation.cc
+build obj/src/v8_base.gdb-jit.o: cxx ../../src/gdb-jit.cc
+build obj/src/v8_base.global-handles.o: cxx ../../src/global-handles.cc
+build obj/src/v8_base.handles.o: cxx ../../src/handles.cc
+build obj/src/heap/v8_base.array-buffer-tracker.o: cxx $
+    ../../src/heap/array-buffer-tracker.cc
+build obj/src/heap/v8_base.memory-reducer.o: cxx $
+    ../../src/heap/memory-reducer.cc
+build obj/src/heap/v8_base.gc-idle-time-handler.o: cxx $
+    ../../src/heap/gc-idle-time-handler.cc
+build obj/src/heap/v8_base.gc-tracer.o: cxx ../../src/heap/gc-tracer.cc
+build obj/src/heap/v8_base.heap.o: cxx ../../src/heap/heap.cc
+build obj/src/heap/v8_base.incremental-marking-job.o: cxx $
+    ../../src/heap/incremental-marking-job.cc
+build obj/src/heap/v8_base.incremental-marking.o: cxx $
+    ../../src/heap/incremental-marking.cc
+build obj/src/heap/v8_base.mark-compact.o: cxx ../../src/heap/mark-compact.cc
+build obj/src/heap/v8_base.object-stats.o: cxx ../../src/heap/object-stats.cc
+build obj/src/heap/v8_base.objects-visiting.o: cxx $
+    ../../src/heap/objects-visiting.cc
+build obj/src/heap/v8_base.remembered-set.o: cxx $
+    ../../src/heap/remembered-set.cc
+build obj/src/heap/v8_base.scavenge-job.o: cxx ../../src/heap/scavenge-job.cc
+build obj/src/heap/v8_base.scavenger.o: cxx ../../src/heap/scavenger.cc
+build obj/src/heap/v8_base.spaces.o: cxx ../../src/heap/spaces.cc
+build obj/src/heap/v8_base.store-buffer.o: cxx ../../src/heap/store-buffer.cc
+build obj/src/v8_base.i18n.o: cxx ../../src/i18n.cc
+build obj/src/v8_base.icu_util.o: cxx ../../src/icu_util.cc
+build obj/src/ic/v8_base.access-compiler.o: cxx $
+    ../../src/ic/access-compiler.cc
+build obj/src/ic/v8_base.call-optimization.o: cxx $
+    ../../src/ic/call-optimization.cc
+build obj/src/ic/v8_base.handler-compiler.o: cxx $
+    ../../src/ic/handler-compiler.cc
+build obj/src/ic/v8_base.ic-state.o: cxx ../../src/ic/ic-state.cc
+build obj/src/ic/v8_base.ic.o: cxx ../../src/ic/ic.cc
+build obj/src/ic/v8_base.ic-compiler.o: cxx ../../src/ic/ic-compiler.cc
+build obj/src/v8_base.identity-map.o: cxx ../../src/identity-map.cc
+build obj/src/v8_base.interface-descriptors.o: cxx $
+    ../../src/interface-descriptors.cc
+build obj/src/interpreter/v8_base.bytecodes.o: cxx $
+    ../../src/interpreter/bytecodes.cc
+build obj/src/interpreter/v8_base.bytecode-array-builder.o: cxx $
+    ../../src/interpreter/bytecode-array-builder.cc
+build obj/src/interpreter/v8_base.bytecode-array-iterator.o: cxx $
+    ../../src/interpreter/bytecode-array-iterator.cc
+build obj/src/interpreter/v8_base.bytecode-array-writer.o: cxx $
+    ../../src/interpreter/bytecode-array-writer.cc
+build obj/src/interpreter/v8_base.bytecode-dead-code-optimizer.o: cxx $
+    ../../src/interpreter/bytecode-dead-code-optimizer.cc
+build obj/src/interpreter/v8_base.bytecode-generator.o: cxx $
+    ../../src/interpreter/bytecode-generator.cc
+build obj/src/interpreter/v8_base.bytecode-peephole-optimizer.o: cxx $
+    ../../src/interpreter/bytecode-peephole-optimizer.cc
+build obj/src/interpreter/v8_base.bytecode-pipeline.o: cxx $
+    ../../src/interpreter/bytecode-pipeline.cc
+build obj/src/interpreter/v8_base.bytecode-register-allocator.o: cxx $
+    ../../src/interpreter/bytecode-register-allocator.cc
+build obj/src/interpreter/v8_base.bytecode-register-optimizer.o: cxx $
+    ../../src/interpreter/bytecode-register-optimizer.cc
+build obj/src/interpreter/v8_base.constant-array-builder.o: cxx $
+    ../../src/interpreter/constant-array-builder.cc
+build obj/src/interpreter/v8_base.control-flow-builders.o: cxx $
+    ../../src/interpreter/control-flow-builders.cc
+build obj/src/interpreter/v8_base.handler-table-builder.o: cxx $
+    ../../src/interpreter/handler-table-builder.cc
+build obj/src/interpreter/v8_base.interpreter.o: cxx $
+    ../../src/interpreter/interpreter.cc
+build obj/src/interpreter/v8_base.interpreter-assembler.o: cxx $
+    ../../src/interpreter/interpreter-assembler.cc
+build obj/src/interpreter/v8_base.interpreter-intrinsics.o: cxx $
+    ../../src/interpreter/interpreter-intrinsics.cc
+build obj/src/v8_base.isolate.o: cxx ../../src/isolate.cc
+build obj/src/v8_base.json-parser.o: cxx ../../src/json-parser.cc
+build obj/src/v8_base.json-stringifier.o: cxx ../../src/json-stringifier.cc
+build obj/src/v8_base.keys.o: cxx ../../src/keys.cc
+build obj/src/v8_base.layout-descriptor.o: cxx ../../src/layout-descriptor.cc
+build obj/src/v8_base.log-utils.o: cxx ../../src/log-utils.cc
+build obj/src/v8_base.log.o: cxx ../../src/log.cc
+build obj/src/v8_base.lookup.o: cxx ../../src/lookup.cc
+build obj/src/v8_base.machine-type.o: cxx ../../src/machine-type.cc
+build obj/src/v8_base.messages.o: cxx ../../src/messages.cc
+build obj/src/v8_base.objects-debug.o: cxx ../../src/objects-debug.cc
+build obj/src/v8_base.objects-printer.o: cxx ../../src/objects-printer.cc
+build obj/src/v8_base.objects.o: cxx ../../src/objects.cc
+build obj/src/v8_base.optimizing-compile-dispatcher.o: cxx $
+    ../../src/optimizing-compile-dispatcher.cc
+build obj/src/v8_base.ostreams.o: cxx ../../src/ostreams.cc
+build obj/src/parsing/v8_base.func-name-inferrer.o: cxx $
+    ../../src/parsing/func-name-inferrer.cc
+build obj/src/parsing/v8_base.parameter-initializer-rewriter.o: cxx $
+    ../../src/parsing/parameter-initializer-rewriter.cc
+build obj/src/parsing/v8_base.parser.o: cxx ../../src/parsing/parser.cc
+build obj/src/parsing/v8_base.pattern-rewriter.o: cxx $
+    ../../src/parsing/pattern-rewriter.cc
+build obj/src/parsing/v8_base.preparse-data.o: cxx $
+    ../../src/parsing/preparse-data.cc
+build obj/src/parsing/v8_base.preparser.o: cxx ../../src/parsing/preparser.cc
+build obj/src/parsing/v8_base.rewriter.o: cxx ../../src/parsing/rewriter.cc
+build obj/src/parsing/v8_base.scanner-character-streams.o: cxx $
+    ../../src/parsing/scanner-character-streams.cc
+build obj/src/parsing/v8_base.scanner.o: cxx ../../src/parsing/scanner.cc
+build obj/src/parsing/v8_base.token.o: cxx ../../src/parsing/token.cc
+build obj/src/v8_base.pending-compilation-error-handler.o: cxx $
+    ../../src/pending-compilation-error-handler.cc
+build obj/src/v8_base.perf-jit.o: cxx ../../src/perf-jit.cc
+build obj/src/profiler/v8_base.allocation-tracker.o: cxx $
+    ../../src/profiler/allocation-tracker.cc
+build obj/src/profiler/v8_base.cpu-profiler.o: cxx $
+    ../../src/profiler/cpu-profiler.cc
+build obj/src/profiler/v8_base.heap-profiler.o: cxx $
+    ../../src/profiler/heap-profiler.cc
+build obj/src/profiler/v8_base.heap-snapshot-generator.o: cxx $
+    ../../src/profiler/heap-snapshot-generator.cc
+build obj/src/profiler/v8_base.profiler-listener.o: cxx $
+    ../../src/profiler/profiler-listener.cc
+build obj/src/profiler/v8_base.profile-generator.o: cxx $
+    ../../src/profiler/profile-generator.cc
+build obj/src/profiler/v8_base.sampling-heap-profiler.o: cxx $
+    ../../src/profiler/sampling-heap-profiler.cc
+build obj/src/profiler/v8_base.strings-storage.o: cxx $
+    ../../src/profiler/strings-storage.cc
+build obj/src/profiler/v8_base.tick-sample.o: cxx $
+    ../../src/profiler/tick-sample.cc
+build obj/src/v8_base.property-descriptor.o: cxx $
+    ../../src/property-descriptor.cc
+build obj/src/v8_base.property.o: cxx ../../src/property.cc
+build obj/src/regexp/v8_base.interpreter-irregexp.o: cxx $
+    ../../src/regexp/interpreter-irregexp.cc
+build obj/src/regexp/v8_base.jsregexp.o: cxx ../../src/regexp/jsregexp.cc
+build obj/src/regexp/v8_base.regexp-ast.o: cxx ../../src/regexp/regexp-ast.cc
+build obj/src/regexp/v8_base.regexp-macro-assembler-irregexp.o: cxx $
+    ../../src/regexp/regexp-macro-assembler-irregexp.cc
+build obj/src/regexp/v8_base.regexp-macro-assembler-tracer.o: cxx $
+    ../../src/regexp/regexp-macro-assembler-tracer.cc
+build obj/src/regexp/v8_base.regexp-macro-assembler.o: cxx $
+    ../../src/regexp/regexp-macro-assembler.cc
+build obj/src/regexp/v8_base.regexp-parser.o: cxx $
+    ../../src/regexp/regexp-parser.cc
+build obj/src/regexp/v8_base.regexp-stack.o: cxx $
+    ../../src/regexp/regexp-stack.cc
+build obj/src/v8_base.register-configuration.o: cxx $
+    ../../src/register-configuration.cc
+build obj/src/v8_base.runtime-profiler.o: cxx ../../src/runtime-profiler.cc
+build obj/src/runtime/v8_base.runtime-array.o: cxx $
+    ../../src/runtime/runtime-array.cc
+build obj/src/runtime/v8_base.runtime-atomics.o: cxx $
+    ../../src/runtime/runtime-atomics.cc
+build obj/src/runtime/v8_base.runtime-classes.o: cxx $
+    ../../src/runtime/runtime-classes.cc
+build obj/src/runtime/v8_base.runtime-collections.o: cxx $
+    ../../src/runtime/runtime-collections.cc
+build obj/src/runtime/v8_base.runtime-compiler.o: cxx $
+    ../../src/runtime/runtime-compiler.cc
+build obj/src/runtime/v8_base.runtime-date.o: cxx $
+    ../../src/runtime/runtime-date.cc
+build obj/src/runtime/v8_base.runtime-debug.o: cxx $
+    ../../src/runtime/runtime-debug.cc
+build obj/src/runtime/v8_base.runtime-forin.o: cxx $
+    ../../src/runtime/runtime-forin.cc
+build obj/src/runtime/v8_base.runtime-function.o: cxx $
+    ../../src/runtime/runtime-function.cc
+build obj/src/runtime/v8_base.runtime-futex.o: cxx $
+    ../../src/runtime/runtime-futex.cc
+build obj/src/runtime/v8_base.runtime-generator.o: cxx $
+    ../../src/runtime/runtime-generator.cc
+build obj/src/runtime/v8_base.runtime-i18n.o: cxx $
+    ../../src/runtime/runtime-i18n.cc
+build obj/src/runtime/v8_base.runtime-internal.o: cxx $
+    ../../src/runtime/runtime-internal.cc
+build obj/src/runtime/v8_base.runtime-interpreter.o: cxx $
+    ../../src/runtime/runtime-interpreter.cc
+build obj/src/runtime/v8_base.runtime-literals.o: cxx $
+    ../../src/runtime/runtime-literals.cc
+build obj/src/runtime/v8_base.runtime-liveedit.o: cxx $
+    ../../src/runtime/runtime-liveedit.cc
+build obj/src/runtime/v8_base.runtime-maths.o: cxx $
+    ../../src/runtime/runtime-maths.cc
+build obj/src/runtime/v8_base.runtime-numbers.o: cxx $
+    ../../src/runtime/runtime-numbers.cc
+build obj/src/runtime/v8_base.runtime-object.o: cxx $
+    ../../src/runtime/runtime-object.cc
+build obj/src/runtime/v8_base.runtime-operators.o: cxx $
+    ../../src/runtime/runtime-operators.cc
+build obj/src/runtime/v8_base.runtime-proxy.o: cxx $
+    ../../src/runtime/runtime-proxy.cc
+build obj/src/runtime/v8_base.runtime-regexp.o: cxx $
+    ../../src/runtime/runtime-regexp.cc
+build obj/src/runtime/v8_base.runtime-scopes.o: cxx $
+    ../../src/runtime/runtime-scopes.cc
+build obj/src/runtime/v8_base.runtime-simd.o: cxx $
+    ../../src/runtime/runtime-simd.cc
+build obj/src/runtime/v8_base.runtime-strings.o: cxx $
+    ../../src/runtime/runtime-strings.cc
+build obj/src/runtime/v8_base.runtime-symbol.o: cxx $
+    ../../src/runtime/runtime-symbol.cc
+build obj/src/runtime/v8_base.runtime-test.o: cxx $
+    ../../src/runtime/runtime-test.cc
+build obj/src/runtime/v8_base.runtime-typedarray.o: cxx $
+    ../../src/runtime/runtime-typedarray.cc
+build obj/src/runtime/v8_base.runtime.o: cxx ../../src/runtime/runtime.cc
+build obj/src/v8_base.safepoint-table.o: cxx ../../src/safepoint-table.cc
+build obj/src/snapshot/v8_base.code-serializer.o: cxx $
+    ../../src/snapshot/code-serializer.cc
+build obj/src/snapshot/v8_base.deserializer.o: cxx $
+    ../../src/snapshot/deserializer.cc
+build obj/src/snapshot/v8_base.natives-common.o: cxx $
+    ../../src/snapshot/natives-common.cc
+build obj/src/snapshot/v8_base.partial-serializer.o: cxx $
+    ../../src/snapshot/partial-serializer.cc
+build obj/src/snapshot/v8_base.serializer.o: cxx $
+    ../../src/snapshot/serializer.cc
+build obj/src/snapshot/v8_base.serializer-common.o: cxx $
+    ../../src/snapshot/serializer-common.cc
+build obj/src/snapshot/v8_base.snapshot-common.o: cxx $
+    ../../src/snapshot/snapshot-common.cc
+build obj/src/snapshot/v8_base.snapshot-source-sink.o: cxx $
+    ../../src/snapshot/snapshot-source-sink.cc
+build obj/src/snapshot/v8_base.startup-serializer.o: cxx $
+    ../../src/snapshot/startup-serializer.cc
+build obj/src/v8_base.source-position-table.o: cxx $
+    ../../src/source-position-table.cc
+build obj/src/v8_base.startup-data-util.o: cxx ../../src/startup-data-util.cc
+build obj/src/v8_base.string-builder.o: cxx ../../src/string-builder.cc
+build obj/src/v8_base.string-stream.o: cxx ../../src/string-stream.cc
+build obj/src/v8_base.strtod.o: cxx ../../src/strtod.cc
+build obj/src/ic/v8_base.stub-cache.o: cxx ../../src/ic/stub-cache.cc
+build obj/src/tracing/v8_base.trace-event.o: cxx $
+    ../../src/tracing/trace-event.cc
+build obj/src/v8_base.transitions.o: cxx ../../src/transitions.cc
+build obj/src/v8_base.type-cache.o: cxx ../../src/type-cache.cc
+build obj/src/v8_base.type-feedback-vector.o: cxx $
+    ../../src/type-feedback-vector.cc
+build obj/src/v8_base.type-info.o: cxx ../../src/type-info.cc
+build obj/src/v8_base.types.o: cxx ../../src/types.cc
+build obj/src/v8_base.typing-asm.o: cxx ../../src/typing-asm.cc
+build obj/src/v8_base.unicode.o: cxx ../../src/unicode.cc
+build obj/src/v8_base.unicode-decoder.o: cxx ../../src/unicode-decoder.cc
+build obj/src/v8_base.uri.o: cxx ../../src/uri.cc
+build obj/src/v8_base.utils.o: cxx ../../src/utils.cc
+build obj/src/v8_base.v8.o: cxx ../../src/v8.cc
+build obj/src/v8_base.v8threads.o: cxx ../../src/v8threads.cc
+build obj/src/v8_base.version.o: cxx ../../src/version.cc
+build obj/src/wasm/v8_base.asm-types.o: cxx ../../src/wasm/asm-types.cc
+build obj/src/wasm/v8_base.asm-wasm-builder.o: cxx $
+    ../../src/wasm/asm-wasm-builder.cc
+build obj/src/wasm/v8_base.ast-decoder.o: cxx ../../src/wasm/ast-decoder.cc
+build obj/src/wasm/v8_base.encoder.o: cxx ../../src/wasm/encoder.cc
+build obj/src/wasm/v8_base.module-decoder.o: cxx $
+    ../../src/wasm/module-decoder.cc
+build obj/src/wasm/v8_base.switch-logic.o: cxx ../../src/wasm/switch-logic.cc
+build obj/src/wasm/v8_base.wasm-debug.o: cxx ../../src/wasm/wasm-debug.cc
+build obj/src/wasm/v8_base.wasm-external-refs.o: cxx $
+    ../../src/wasm/wasm-external-refs.cc
+build obj/src/wasm/v8_base.wasm-function-name-table.o: cxx $
+    ../../src/wasm/wasm-function-name-table.cc
+build obj/src/wasm/v8_base.wasm-js.o: cxx ../../src/wasm/wasm-js.cc
+build obj/src/wasm/v8_base.wasm-module.o: cxx ../../src/wasm/wasm-module.cc
+build obj/src/wasm/v8_base.wasm-interpreter.o: cxx $
+    ../../src/wasm/wasm-interpreter.cc
+build obj/src/wasm/v8_base.wasm-opcodes.o: cxx ../../src/wasm/wasm-opcodes.cc
+build obj/src/wasm/v8_base.wasm-result.o: cxx ../../src/wasm/wasm-result.cc
+build obj/src/v8_base.zone.o: cxx ../../src/zone.cc
+build obj/src/crankshaft/x64/v8_base.lithium-codegen-x64.o: cxx $
+    ../../src/crankshaft/x64/lithium-codegen-x64.cc
+build obj/src/crankshaft/x64/v8_base.lithium-gap-resolver-x64.o: cxx $
+    ../../src/crankshaft/x64/lithium-gap-resolver-x64.cc
+build obj/src/crankshaft/x64/v8_base.lithium-x64.o: cxx $
+    ../../src/crankshaft/x64/lithium-x64.cc
+build obj/src/x64/v8_base.assembler-x64.o: cxx ../../src/x64/assembler-x64.cc
+build obj/src/x64/v8_base.builtins-x64.o: cxx ../../src/x64/builtins-x64.cc
+build obj/src/x64/v8_base.code-stubs-x64.o: cxx $
+    ../../src/x64/code-stubs-x64.cc
+build obj/src/x64/v8_base.codegen-x64.o: cxx ../../src/x64/codegen-x64.cc
+build obj/src/x64/v8_base.cpu-x64.o: cxx ../../src/x64/cpu-x64.cc
+build obj/src/x64/v8_base.deoptimizer-x64.o: cxx $
+    ../../src/x64/deoptimizer-x64.cc
+build obj/src/x64/v8_base.disasm-x64.o: cxx ../../src/x64/disasm-x64.cc
+build obj/src/x64/v8_base.frames-x64.o: cxx ../../src/x64/frames-x64.cc
+build obj/src/x64/v8_base.interface-descriptors-x64.o: cxx $
+    ../../src/x64/interface-descriptors-x64.cc
+build obj/src/x64/v8_base.macro-assembler-x64.o: cxx $
+    ../../src/x64/macro-assembler-x64.cc
+build obj/src/debug/x64/v8_base.debug-x64.o: cxx $
+    ../../src/debug/x64/debug-x64.cc
+build obj/src/full-codegen/x64/v8_base.full-codegen-x64.o: cxx $
+    ../../src/full-codegen/x64/full-codegen-x64.cc
+build obj/src/ic/x64/v8_base.access-compiler-x64.o: cxx $
+    ../../src/ic/x64/access-compiler-x64.cc
+build obj/src/ic/x64/v8_base.handler-compiler-x64.o: cxx $
+    ../../src/ic/x64/handler-compiler-x64.cc
+build obj/src/ic/x64/v8_base.ic-x64.o: cxx ../../src/ic/x64/ic-x64.cc
+build obj/src/ic/x64/v8_base.ic-compiler-x64.o: cxx $
+    ../../src/ic/x64/ic-compiler-x64.cc
+build obj/src/ic/x64/v8_base.stub-cache-x64.o: cxx $
+    ../../src/ic/x64/stub-cache-x64.cc
+build obj/src/regexp/x64/v8_base.regexp-macro-assembler-x64.o: cxx $
+    ../../src/regexp/x64/regexp-macro-assembler-x64.cc
+build obj/src/compiler/x64/v8_base.code-generator-x64.o: cxx $
+    ../../src/compiler/x64/code-generator-x64.cc
+build obj/src/compiler/x64/v8_base.instruction-scheduler-x64.o: cxx $
+    ../../src/compiler/x64/instruction-scheduler-x64.cc
+build obj/src/compiler/x64/v8_base.instruction-selector-x64.o: cxx $
+    ../../src/compiler/x64/instruction-selector-x64.cc
+
+build obj/src/libv8_base.a: alink_thin obj/src/v8_base.accessors.o $
+    obj/src/v8_base.address-map.o obj/src/v8_base.allocation.o $
+    obj/src/v8_base.allocation-site-scopes.o $
+    obj/src/v8_base.api-experimental.o obj/src/v8_base.api.o $
+    obj/src/v8_base.api-arguments.o obj/src/v8_base.api-natives.o $
+    obj/src/v8_base.arguments.o obj/src/v8_base.assembler.o $
+    obj/src/v8_base.assert-scope.o $
+    obj/src/ast/v8_base.ast-expression-rewriter.o $
+    obj/src/ast/v8_base.ast-expression-visitor.o $
+    obj/src/ast/v8_base.ast-literal-reindexer.o $
+    obj/src/ast/v8_base.ast-numbering.o $
+    obj/src/ast/v8_base.ast-value-factory.o obj/src/ast/v8_base.ast.o $
+    obj/src/ast/v8_base.modules.o obj/src/ast/v8_base.prettyprinter.o $
+    obj/src/ast/v8_base.scopeinfo.o obj/src/ast/v8_base.scopes.o $
+    obj/src/ast/v8_base.variables.o $
+    obj/src/v8_base.background-parsing-task.o $
+    obj/src/v8_base.bailout-reason.o obj/src/v8_base.basic-block-profiler.o $
+    obj/src/v8_base.bignum-dtoa.o obj/src/v8_base.bignum.o $
+    obj/src/v8_base.bit-vector.o obj/src/v8_base.bootstrapper.o $
+    obj/src/v8_base.builtins.o obj/src/v8_base.cached-powers.o $
+    obj/src/v8_base.cancelable-task.o obj/src/v8_base.char-predicates.o $
+    obj/src/v8_base.code-factory.o obj/src/v8_base.code-stub-assembler.o $
+    obj/src/v8_base.code-stubs.o obj/src/v8_base.code-stubs-hydrogen.o $
+    obj/src/v8_base.codegen.o obj/src/v8_base.compilation-cache.o $
+    obj/src/v8_base.compilation-dependencies.o $
+    obj/src/v8_base.compilation-statistics.o $
+    obj/src/compiler/v8_base.access-builder.o $
+    obj/src/compiler/v8_base.access-info.o $
+    obj/src/compiler/v8_base.all-nodes.o $
+    obj/src/compiler/v8_base.ast-graph-builder.o $
+    obj/src/compiler/v8_base.ast-loop-assignment-analyzer.o $
+    obj/src/compiler/v8_base.basic-block-instrumentor.o $
+    obj/src/compiler/v8_base.branch-elimination.o $
+    obj/src/compiler/v8_base.bytecode-branch-analysis.o $
+    obj/src/compiler/v8_base.bytecode-graph-builder.o $
+    obj/src/compiler/v8_base.c-linkage.o $
+    obj/src/compiler/v8_base.checkpoint-elimination.o $
+    obj/src/compiler/v8_base.code-generator.o $
+    obj/src/compiler/v8_base.code-assembler.o $
+    obj/src/compiler/v8_base.common-node-cache.o $
+    obj/src/compiler/v8_base.common-operator-reducer.o $
+    obj/src/compiler/v8_base.common-operator.o $
+    obj/src/compiler/v8_base.control-builders.o $
+    obj/src/compiler/v8_base.control-equivalence.o $
+    obj/src/compiler/v8_base.control-flow-optimizer.o $
+    obj/src/compiler/v8_base.dead-code-elimination.o $
+    obj/src/compiler/v8_base.effect-control-linearizer.o $
+    obj/src/compiler/v8_base.escape-analysis.o $
+    obj/src/compiler/v8_base.escape-analysis-reducer.o $
+    obj/src/compiler/v8_base.frame.o $
+    obj/src/compiler/v8_base.frame-elider.o $
+    obj/src/compiler/v8_base.frame-states.o $
+    obj/src/compiler/v8_base.gap-resolver.o $
+    obj/src/compiler/v8_base.graph-reducer.o $
+    obj/src/compiler/v8_base.graph-replay.o $
+    obj/src/compiler/v8_base.graph-trimmer.o $
+    obj/src/compiler/v8_base.graph-visualizer.o $
+    obj/src/compiler/v8_base.graph.o $
+    obj/src/compiler/v8_base.instruction-selector.o $
+    obj/src/compiler/v8_base.instruction-scheduler.o $
+    obj/src/compiler/v8_base.instruction.o $
+    obj/src/compiler/v8_base.int64-lowering.o $
+    obj/src/compiler/v8_base.js-builtin-reducer.o $
+    obj/src/compiler/v8_base.js-call-reducer.o $
+    obj/src/compiler/v8_base.js-context-specialization.o $
+    obj/src/compiler/v8_base.js-create-lowering.o $
+    obj/src/compiler/v8_base.js-frame-specialization.o $
+    obj/src/compiler/v8_base.js-generic-lowering.o $
+    obj/src/compiler/v8_base.js-global-object-specialization.o $
+    obj/src/compiler/v8_base.js-graph.o $
+    obj/src/compiler/v8_base.js-inlining.o $
+    obj/src/compiler/v8_base.js-inlining-heuristic.o $
+    obj/src/compiler/v8_base.js-intrinsic-lowering.o $
+    obj/src/compiler/v8_base.js-native-context-specialization.o $
+    obj/src/compiler/v8_base.js-operator.o $
+    obj/src/compiler/v8_base.js-typed-lowering.o $
+    obj/src/compiler/v8_base.jump-threading.o $
+    obj/src/compiler/v8_base.linkage.o $
+    obj/src/compiler/v8_base.liveness-analyzer.o $
+    obj/src/compiler/v8_base.live-range-separator.o $
+    obj/src/compiler/v8_base.load-elimination.o $
+    obj/src/compiler/v8_base.loop-analysis.o $
+    obj/src/compiler/v8_base.loop-peeling.o $
+    obj/src/compiler/v8_base.machine-operator-reducer.o $
+    obj/src/compiler/v8_base.machine-operator.o $
+    obj/src/compiler/v8_base.memory-optimizer.o $
+    obj/src/compiler/v8_base.move-optimizer.o $
+    obj/src/compiler/v8_base.node-cache.o $
+    obj/src/compiler/v8_base.node-marker.o $
+    obj/src/compiler/v8_base.node-matchers.o $
+    obj/src/compiler/v8_base.node-properties.o $
+    obj/src/compiler/v8_base.node.o obj/src/compiler/v8_base.opcodes.o $
+    obj/src/compiler/v8_base.operation-typer.o $
+    obj/src/compiler/v8_base.operator-properties.o $
+    obj/src/compiler/v8_base.operator.o obj/src/compiler/v8_base.osr.o $
+    obj/src/compiler/v8_base.pipeline.o $
+    obj/src/compiler/v8_base.pipeline-statistics.o $
+    obj/src/compiler/v8_base.raw-machine-assembler.o $
+    obj/src/compiler/v8_base.redundancy-elimination.o $
+    obj/src/compiler/v8_base.register-allocator.o $
+    obj/src/compiler/v8_base.register-allocator-verifier.o $
+    obj/src/compiler/v8_base.representation-change.o $
+    obj/src/compiler/v8_base.schedule.o $
+    obj/src/compiler/v8_base.scheduler.o $
+    obj/src/compiler/v8_base.select-lowering.o $
+    obj/src/compiler/v8_base.simplified-lowering.o $
+    obj/src/compiler/v8_base.simplified-operator-reducer.o $
+    obj/src/compiler/v8_base.simplified-operator.o $
+    obj/src/compiler/v8_base.source-position.o $
+    obj/src/compiler/v8_base.state-values-utils.o $
+    obj/src/compiler/v8_base.store-store-elimination.o $
+    obj/src/compiler/v8_base.tail-call-optimization.o $
+    obj/src/compiler/v8_base.type-hint-analyzer.o $
+    obj/src/compiler/v8_base.type-hints.o obj/src/compiler/v8_base.typer.o $
+    obj/src/compiler/v8_base.value-numbering-reducer.o $
+    obj/src/compiler/v8_base.verifier.o $
+    obj/src/compiler/v8_base.wasm-compiler.o $
+    obj/src/compiler/v8_base.wasm-linkage.o $
+    obj/src/compiler/v8_base.zone-pool.o obj/src/v8_base.compiler.o $
+    obj/src/v8_base.context-measure.o obj/src/v8_base.contexts.o $
+    obj/src/v8_base.conversions.o obj/src/v8_base.counters.o $
+    obj/src/crankshaft/v8_base.compilation-phase.o $
+    obj/src/crankshaft/v8_base.hydrogen-bce.o $
+    obj/src/crankshaft/v8_base.hydrogen-canonicalize.o $
+    obj/src/crankshaft/v8_base.hydrogen-check-elimination.o $
+    obj/src/crankshaft/v8_base.hydrogen-dce.o $
+    obj/src/crankshaft/v8_base.hydrogen-dehoist.o $
+    obj/src/crankshaft/v8_base.hydrogen-environment-liveness.o $
+    obj/src/crankshaft/v8_base.hydrogen-escape-analysis.o $
+    obj/src/crankshaft/v8_base.hydrogen-gvn.o $
+    obj/src/crankshaft/v8_base.hydrogen-infer-representation.o $
+    obj/src/crankshaft/v8_base.hydrogen-infer-types.o $
+    obj/src/crankshaft/v8_base.hydrogen-instructions.o $
+    obj/src/crankshaft/v8_base.hydrogen-load-elimination.o $
+    obj/src/crankshaft/v8_base.hydrogen-mark-deoptimize.o $
+    obj/src/crankshaft/v8_base.hydrogen-mark-unreachable.o $
+    obj/src/crankshaft/v8_base.hydrogen-osr.o $
+    obj/src/crankshaft/v8_base.hydrogen-range-analysis.o $
+    obj/src/crankshaft/v8_base.hydrogen-redundant-phi.o $
+    obj/src/crankshaft/v8_base.hydrogen-removable-simulates.o $
+    obj/src/crankshaft/v8_base.hydrogen-representation-changes.o $
+    obj/src/crankshaft/v8_base.hydrogen-sce.o $
+    obj/src/crankshaft/v8_base.hydrogen-store-elimination.o $
+    obj/src/crankshaft/v8_base.hydrogen-types.o $
+    obj/src/crankshaft/v8_base.hydrogen-uint32-analysis.o $
+    obj/src/crankshaft/v8_base.hydrogen.o $
+    obj/src/crankshaft/v8_base.lithium-allocator.o $
+    obj/src/crankshaft/v8_base.lithium-codegen.o $
+    obj/src/crankshaft/v8_base.lithium.o $
+    obj/src/crankshaft/v8_base.typing.o obj/src/v8_base.date.o $
+    obj/src/v8_base.dateparser.o obj/src/debug/v8_base.debug-evaluate.o $
+    obj/src/debug/v8_base.debug-frames.o $
+    obj/src/debug/v8_base.debug-scopes.o obj/src/debug/v8_base.debug.o $
+    obj/src/debug/v8_base.liveedit.o obj/src/v8_base.deoptimizer.o $
+    obj/src/v8_base.disassembler.o obj/src/v8_base.diy-fp.o $
+    obj/src/v8_base.dtoa.o obj/src/v8_base.eh-frame.o $
+    obj/src/v8_base.elements-kind.o obj/src/v8_base.elements.o $
+    obj/src/v8_base.execution.o $
+    obj/src/extensions/v8_base.externalize-string-extension.o $
+    obj/src/extensions/v8_base.free-buffer-extension.o $
+    obj/src/extensions/v8_base.gc-extension.o $
+    obj/src/extensions/v8_base.ignition-statistics-extension.o $
+    obj/src/extensions/v8_base.statistics-extension.o $
+    obj/src/extensions/v8_base.trigger-failure-extension.o $
+    obj/src/v8_base.external-reference-table.o obj/src/v8_base.factory.o $
+    obj/src/v8_base.fast-accessor-assembler.o obj/src/v8_base.fast-dtoa.o $
+    obj/src/v8_base.field-type.o obj/src/v8_base.fixed-dtoa.o $
+    obj/src/v8_base.flags.o obj/src/v8_base.frames.o $
+    obj/src/full-codegen/v8_base.full-codegen.o $
+    obj/src/v8_base.futex-emulation.o obj/src/v8_base.gdb-jit.o $
+    obj/src/v8_base.global-handles.o obj/src/v8_base.handles.o $
+    obj/src/heap/v8_base.array-buffer-tracker.o $
+    obj/src/heap/v8_base.memory-reducer.o $
+    obj/src/heap/v8_base.gc-idle-time-handler.o $
+    obj/src/heap/v8_base.gc-tracer.o obj/src/heap/v8_base.heap.o $
+    obj/src/heap/v8_base.incremental-marking-job.o $
+    obj/src/heap/v8_base.incremental-marking.o $
+    obj/src/heap/v8_base.mark-compact.o obj/src/heap/v8_base.object-stats.o $
+    obj/src/heap/v8_base.objects-visiting.o $
+    obj/src/heap/v8_base.remembered-set.o $
+    obj/src/heap/v8_base.scavenge-job.o obj/src/heap/v8_base.scavenger.o $
+    obj/src/heap/v8_base.spaces.o obj/src/heap/v8_base.store-buffer.o $
+    obj/src/v8_base.i18n.o obj/src/v8_base.icu_util.o $
+    obj/src/ic/v8_base.access-compiler.o $
+    obj/src/ic/v8_base.call-optimization.o $
+    obj/src/ic/v8_base.handler-compiler.o obj/src/ic/v8_base.ic-state.o $
+    obj/src/ic/v8_base.ic.o obj/src/ic/v8_base.ic-compiler.o $
+    obj/src/v8_base.identity-map.o obj/src/v8_base.interface-descriptors.o $
+    obj/src/interpreter/v8_base.bytecodes.o $
+    obj/src/interpreter/v8_base.bytecode-array-builder.o $
+    obj/src/interpreter/v8_base.bytecode-array-iterator.o $
+    obj/src/interpreter/v8_base.bytecode-array-writer.o $
+    obj/src/interpreter/v8_base.bytecode-dead-code-optimizer.o $
+    obj/src/interpreter/v8_base.bytecode-generator.o $
+    obj/src/interpreter/v8_base.bytecode-peephole-optimizer.o $
+    obj/src/interpreter/v8_base.bytecode-pipeline.o $
+    obj/src/interpreter/v8_base.bytecode-register-allocator.o $
+    obj/src/interpreter/v8_base.bytecode-register-optimizer.o $
+    obj/src/interpreter/v8_base.constant-array-builder.o $
+    obj/src/interpreter/v8_base.control-flow-builders.o $
+    obj/src/interpreter/v8_base.handler-table-builder.o $
+    obj/src/interpreter/v8_base.interpreter.o $
+    obj/src/interpreter/v8_base.interpreter-assembler.o $
+    obj/src/interpreter/v8_base.interpreter-intrinsics.o $
+    obj/src/v8_base.isolate.o obj/src/v8_base.json-parser.o $
+    obj/src/v8_base.json-stringifier.o obj/src/v8_base.keys.o $
+    obj/src/v8_base.layout-descriptor.o obj/src/v8_base.log-utils.o $
+    obj/src/v8_base.log.o obj/src/v8_base.lookup.o $
+    obj/src/v8_base.machine-type.o obj/src/v8_base.messages.o $
+    obj/src/v8_base.objects-debug.o obj/src/v8_base.objects-printer.o $
+    obj/src/v8_base.objects.o $
+    obj/src/v8_base.optimizing-compile-dispatcher.o $
+    obj/src/v8_base.ostreams.o obj/src/parsing/v8_base.func-name-inferrer.o $
+    obj/src/parsing/v8_base.parameter-initializer-rewriter.o $
+    obj/src/parsing/v8_base.parser.o $
+    obj/src/parsing/v8_base.pattern-rewriter.o $
+    obj/src/parsing/v8_base.preparse-data.o $
+    obj/src/parsing/v8_base.preparser.o obj/src/parsing/v8_base.rewriter.o $
+    obj/src/parsing/v8_base.scanner-character-streams.o $
+    obj/src/parsing/v8_base.scanner.o obj/src/parsing/v8_base.token.o $
+    obj/src/v8_base.pending-compilation-error-handler.o $
+    obj/src/v8_base.perf-jit.o $
+    obj/src/profiler/v8_base.allocation-tracker.o $
+    obj/src/profiler/v8_base.cpu-profiler.o $
+    obj/src/profiler/v8_base.heap-profiler.o $
+    obj/src/profiler/v8_base.heap-snapshot-generator.o $
+    obj/src/profiler/v8_base.profiler-listener.o $
+    obj/src/profiler/v8_base.profile-generator.o $
+    obj/src/profiler/v8_base.sampling-heap-profiler.o $
+    obj/src/profiler/v8_base.strings-storage.o $
+    obj/src/profiler/v8_base.tick-sample.o $
+    obj/src/v8_base.property-descriptor.o obj/src/v8_base.property.o $
+    obj/src/regexp/v8_base.interpreter-irregexp.o $
+    obj/src/regexp/v8_base.jsregexp.o obj/src/regexp/v8_base.regexp-ast.o $
+    obj/src/regexp/v8_base.regexp-macro-assembler-irregexp.o $
+    obj/src/regexp/v8_base.regexp-macro-assembler-tracer.o $
+    obj/src/regexp/v8_base.regexp-macro-assembler.o $
+    obj/src/regexp/v8_base.regexp-parser.o $
+    obj/src/regexp/v8_base.regexp-stack.o $
+    obj/src/v8_base.register-configuration.o $
+    obj/src/v8_base.runtime-profiler.o $
+    obj/src/runtime/v8_base.runtime-array.o $
+    obj/src/runtime/v8_base.runtime-atomics.o $
+    obj/src/runtime/v8_base.runtime-classes.o $
+    obj/src/runtime/v8_base.runtime-collections.o $
+    obj/src/runtime/v8_base.runtime-compiler.o $
+    obj/src/runtime/v8_base.runtime-date.o $
+    obj/src/runtime/v8_base.runtime-debug.o $
+    obj/src/runtime/v8_base.runtime-forin.o $
+    obj/src/runtime/v8_base.runtime-function.o $
+    obj/src/runtime/v8_base.runtime-futex.o $
+    obj/src/runtime/v8_base.runtime-generator.o $
+    obj/src/runtime/v8_base.runtime-i18n.o $
+    obj/src/runtime/v8_base.runtime-internal.o $
+    obj/src/runtime/v8_base.runtime-interpreter.o $
+    obj/src/runtime/v8_base.runtime-literals.o $
+    obj/src/runtime/v8_base.runtime-liveedit.o $
+    obj/src/runtime/v8_base.runtime-maths.o $
+    obj/src/runtime/v8_base.runtime-numbers.o $
+    obj/src/runtime/v8_base.runtime-object.o $
+    obj/src/runtime/v8_base.runtime-operators.o $
+    obj/src/runtime/v8_base.runtime-proxy.o $
+    obj/src/runtime/v8_base.runtime-regexp.o $
+    obj/src/runtime/v8_base.runtime-scopes.o $
+    obj/src/runtime/v8_base.runtime-simd.o $
+    obj/src/runtime/v8_base.runtime-strings.o $
+    obj/src/runtime/v8_base.runtime-symbol.o $
+    obj/src/runtime/v8_base.runtime-test.o $
+    obj/src/runtime/v8_base.runtime-typedarray.o $
+    obj/src/runtime/v8_base.runtime.o obj/src/v8_base.safepoint-table.o $
+    obj/src/snapshot/v8_base.code-serializer.o $
+    obj/src/snapshot/v8_base.deserializer.o $
+    obj/src/snapshot/v8_base.natives-common.o $
+    obj/src/snapshot/v8_base.partial-serializer.o $
+    obj/src/snapshot/v8_base.serializer.o $
+    obj/src/snapshot/v8_base.serializer-common.o $
+    obj/src/snapshot/v8_base.snapshot-common.o $
+    obj/src/snapshot/v8_base.snapshot-source-sink.o $
+    obj/src/snapshot/v8_base.startup-serializer.o $
+    obj/src/v8_base.source-position-table.o $
+    obj/src/v8_base.startup-data-util.o obj/src/v8_base.string-builder.o $
+    obj/src/v8_base.string-stream.o obj/src/v8_base.strtod.o $
+    obj/src/ic/v8_base.stub-cache.o obj/src/tracing/v8_base.trace-event.o $
+    obj/src/v8_base.transitions.o obj/src/v8_base.type-cache.o $
+    obj/src/v8_base.type-feedback-vector.o obj/src/v8_base.type-info.o $
+    obj/src/v8_base.types.o obj/src/v8_base.typing-asm.o $
+    obj/src/v8_base.unicode.o obj/src/v8_base.unicode-decoder.o $
+    obj/src/v8_base.uri.o obj/src/v8_base.utils.o obj/src/v8_base.v8.o $
+    obj/src/v8_base.v8threads.o obj/src/v8_base.version.o $
+    obj/src/wasm/v8_base.asm-types.o $
+    obj/src/wasm/v8_base.asm-wasm-builder.o $
+    obj/src/wasm/v8_base.ast-decoder.o obj/src/wasm/v8_base.encoder.o $
+    obj/src/wasm/v8_base.module-decoder.o $
+    obj/src/wasm/v8_base.switch-logic.o obj/src/wasm/v8_base.wasm-debug.o $
+    obj/src/wasm/v8_base.wasm-external-refs.o $
+    obj/src/wasm/v8_base.wasm-function-name-table.o $
+    obj/src/wasm/v8_base.wasm-js.o obj/src/wasm/v8_base.wasm-module.o $
+    obj/src/wasm/v8_base.wasm-interpreter.o $
+    obj/src/wasm/v8_base.wasm-opcodes.o obj/src/wasm/v8_base.wasm-result.o $
+    obj/src/v8_base.zone.o $
+    obj/src/crankshaft/x64/v8_base.lithium-codegen-x64.o $
+    obj/src/crankshaft/x64/v8_base.lithium-gap-resolver-x64.o $
+    obj/src/crankshaft/x64/v8_base.lithium-x64.o $
+    obj/src/x64/v8_base.assembler-x64.o obj/src/x64/v8_base.builtins-x64.o $
+    obj/src/x64/v8_base.code-stubs-x64.o obj/src/x64/v8_base.codegen-x64.o $
+    obj/src/x64/v8_base.cpu-x64.o obj/src/x64/v8_base.deoptimizer-x64.o $
+    obj/src/x64/v8_base.disasm-x64.o obj/src/x64/v8_base.frames-x64.o $
+    obj/src/x64/v8_base.interface-descriptors-x64.o $
+    obj/src/x64/v8_base.macro-assembler-x64.o $
+    obj/src/debug/x64/v8_base.debug-x64.o $
+    obj/src/full-codegen/x64/v8_base.full-codegen-x64.o $
+    obj/src/ic/x64/v8_base.access-compiler-x64.o $
+    obj/src/ic/x64/v8_base.handler-compiler-x64.o $
+    obj/src/ic/x64/v8_base.ic-x64.o $
+    obj/src/ic/x64/v8_base.ic-compiler-x64.o $
+    obj/src/ic/x64/v8_base.stub-cache-x64.o $
+    obj/src/regexp/x64/v8_base.regexp-macro-assembler-x64.o $
+    obj/src/compiler/x64/v8_base.code-generator-x64.o $
+    obj/src/compiler/x64/v8_base.instruction-scheduler-x64.o $
+    obj/src/compiler/x64/v8_base.instruction-selector-x64.o

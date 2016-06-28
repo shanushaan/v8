@@ -1,0 +1,150 @@
+rule js2c_target_js2c_f00e4501a32b6068e15ab362af12d466
+  command = cd ../../src; python ../tools/js2c.py $
+      ../out/Debug/gen/libraries.cc CORE js/macros.py messages.h $
+      js/prologue.js js/runtime.js js/v8natives.js js/symbol.js js/array.js $
+      js/string.js js/math.js third_party/fdlibm/fdlibm.js js/regexp.js $
+      js/arraybuffer.js js/typedarray.js js/iterator-prototype.js $
+      js/collection.js js/weak-collection.js js/collection-iterator.js $
+      js/promise.js js/messages.js js/array-iterator.js $
+      js/string-iterator.js js/templates.js js/spread.js js/proxy.js $
+      debug/mirrors.js debug/debug.js debug/liveedit.js js/i18n.js
+  description = ACTION js2c: js2c_f00e4501a32b6068e15ab362af12d466
+  restat = 1
+
+build gen/libraries.cc: js2c_target_js2c_f00e4501a32b6068e15ab362af12d466 $
+    ../../tools/js2c.py ../../src/js/macros.py ../../src/messages.h $
+    ../../src/js/prologue.js ../../src/js/runtime.js $
+    ../../src/js/v8natives.js ../../src/js/symbol.js ../../src/js/array.js $
+    ../../src/js/string.js ../../src/js/math.js $
+    ../../src/third_party/fdlibm/fdlibm.js ../../src/js/regexp.js $
+    ../../src/js/arraybuffer.js ../../src/js/typedarray.js $
+    ../../src/js/iterator-prototype.js ../../src/js/collection.js $
+    ../../src/js/weak-collection.js ../../src/js/collection-iterator.js $
+    ../../src/js/promise.js ../../src/js/messages.js $
+    ../../src/js/array-iterator.js ../../src/js/string-iterator.js $
+    ../../src/js/templates.js ../../src/js/spread.js ../../src/js/proxy.js $
+    ../../src/debug/mirrors.js ../../src/debug/debug.js $
+    ../../src/debug/liveedit.js ../../src/js/i18n.js
+
+rule js2c_target_js2c_bin_f00e4501a32b6068e15ab362af12d466
+  command = cd ../../src; python ../tools/js2c.py $
+      ../out/Debug/gen/libraries.cc CORE js/macros.py messages.h $
+      js/prologue.js js/runtime.js js/v8natives.js js/symbol.js js/array.js $
+      js/string.js js/math.js third_party/fdlibm/fdlibm.js js/regexp.js $
+      js/arraybuffer.js js/typedarray.js js/iterator-prototype.js $
+      js/collection.js js/weak-collection.js js/collection-iterator.js $
+      js/promise.js js/messages.js js/array-iterator.js $
+      js/string-iterator.js js/templates.js js/spread.js js/proxy.js $
+      debug/mirrors.js debug/debug.js debug/liveedit.js js/i18n.js $
+      --startup_blob ../out/Debug/gen/libraries.bin --nojs
+  description = ACTION js2c: js2c_bin_f00e4501a32b6068e15ab362af12d466
+  restat = 1
+
+build gen/libraries.bin: $
+    js2c_target_js2c_bin_f00e4501a32b6068e15ab362af12d466 $
+    ../../tools/js2c.py ../../src/js/macros.py ../../src/messages.h $
+    ../../src/js/prologue.js ../../src/js/runtime.js $
+    ../../src/js/v8natives.js ../../src/js/symbol.js ../../src/js/array.js $
+    ../../src/js/string.js ../../src/js/math.js $
+    ../../src/third_party/fdlibm/fdlibm.js ../../src/js/regexp.js $
+    ../../src/js/arraybuffer.js ../../src/js/typedarray.js $
+    ../../src/js/iterator-prototype.js ../../src/js/collection.js $
+    ../../src/js/weak-collection.js ../../src/js/collection-iterator.js $
+    ../../src/js/promise.js ../../src/js/messages.js $
+    ../../src/js/array-iterator.js ../../src/js/string-iterator.js $
+    ../../src/js/templates.js ../../src/js/spread.js ../../src/js/proxy.js $
+    ../../src/debug/mirrors.js ../../src/debug/debug.js $
+    ../../src/debug/liveedit.js ../../src/js/i18n.js
+
+rule js2c_target_js2c_experimental_f00e4501a32b6068e15ab362af12d466
+  command = cd ../../src; python ../tools/js2c.py $
+      ../out/Debug/gen/experimental-libraries.cc EXPERIMENTAL js/macros.py $
+      messages.h js/harmony-atomics.js js/harmony-sharedarraybuffer.js $
+      js/harmony-simd.js js/harmony-string-padding.js js/promise-extra.js $
+      js/harmony-async-await.js js/icu-case-mapping.js js/intl-extra.js
+  description = ACTION js2c: $
+      js2c_experimental_f00e4501a32b6068e15ab362af12d466
+  restat = 1
+
+build gen/experimental-libraries.cc: $
+    js2c_target_js2c_experimental_f00e4501a32b6068e15ab362af12d466 $
+    ../../tools/js2c.py ../../src/js/macros.py ../../src/messages.h $
+    ../../src/js/harmony-atomics.js $
+    ../../src/js/harmony-sharedarraybuffer.js ../../src/js/harmony-simd.js $
+    ../../src/js/harmony-string-padding.js ../../src/js/promise-extra.js $
+    ../../src/js/harmony-async-await.js ../../src/js/icu-case-mapping.js $
+    ../../src/js/intl-extra.js
+
+rule js2c_target_js2c_experimental_bin_f00e4501a32b6068e15ab362af12d466
+  command = cd ../../src; python ../tools/js2c.py $
+      ../out/Debug/gen/experimental-libraries.cc EXPERIMENTAL js/macros.py $
+      messages.h js/harmony-atomics.js js/harmony-sharedarraybuffer.js $
+      js/harmony-simd.js js/harmony-string-padding.js js/promise-extra.js $
+      js/harmony-async-await.js js/icu-case-mapping.js js/intl-extra.js $
+      --startup_blob ../out/Debug/gen/libraries-experimental.bin --nojs
+  description = ACTION js2c: $
+      js2c_experimental_bin_f00e4501a32b6068e15ab362af12d466
+  restat = 1
+
+build gen/libraries-experimental.bin: $
+    js2c_target_js2c_experimental_bin_f00e4501a32b6068e15ab362af12d466 $
+    ../../tools/js2c.py ../../src/js/macros.py ../../src/messages.h $
+    ../../src/js/harmony-atomics.js $
+    ../../src/js/harmony-sharedarraybuffer.js ../../src/js/harmony-simd.js $
+    ../../src/js/harmony-string-padding.js ../../src/js/promise-extra.js $
+    ../../src/js/harmony-async-await.js ../../src/js/icu-case-mapping.js $
+    ../../src/js/intl-extra.js
+
+rule js2c_target_js2c_extras_f00e4501a32b6068e15ab362af12d466
+  command = cd ../../src; python ../tools/js2c.py $
+      ../out/Debug/gen/extras-libraries.cc EXTRAS ../test/cctest/test-extra.js
+  description = ACTION js2c: js2c_extras_f00e4501a32b6068e15ab362af12d466
+  restat = 1
+
+build gen/extras-libraries.cc: $
+    js2c_target_js2c_extras_f00e4501a32b6068e15ab362af12d466 $
+    ../../tools/js2c.py ../../test/cctest/test-extra.js
+
+rule js2c_target_js2c_extras_bin_f00e4501a32b6068e15ab362af12d466
+  command = cd ../../src; python ../tools/js2c.py $
+      ../out/Debug/gen/extras-libraries.cc EXTRAS $
+      ../test/cctest/test-extra.js --startup_blob $
+      ../out/Debug/gen/libraries-extras.bin --nojs
+  description = ACTION js2c: js2c_extras_bin_f00e4501a32b6068e15ab362af12d466
+  restat = 1
+
+build gen/libraries-extras.bin: $
+    js2c_target_js2c_extras_bin_f00e4501a32b6068e15ab362af12d466 $
+    ../../tools/js2c.py ../../test/cctest/test-extra.js
+
+rule js2c_target_js2c_experimental_extras_f00e4501a32b6068e15ab362af12d466
+  command = cd ../../src; python ../tools/js2c.py $
+      ../out/Debug/gen/experimental-extras-libraries.cc EXPERIMENTAL_EXTRAS $
+      ../test/cctest/test-experimental-extra.js
+  description = ACTION js2c: $
+      js2c_experimental_extras_f00e4501a32b6068e15ab362af12d466
+  restat = 1
+
+build gen/experimental-extras-libraries.cc: $
+    js2c_target_js2c_experimental_extras_f00e4501a32b6068e15ab362af12d466 $
+    ../../tools/js2c.py ../../test/cctest/test-experimental-extra.js
+
+rule js2c_target_js2c_experimental_extras_bin_f00e4501a32b6068e15ab362af12d466
+  command = cd ../../src; python ../tools/js2c.py $
+      ../out/Debug/gen/experimental-extras-libraries.cc EXPERIMENTAL_EXTRAS $
+      ../test/cctest/test-experimental-extra.js --startup_blob $
+      ../out/Debug/gen/libraries-experimental-extras.bin --nojs
+  description = ACTION js2c: $
+      js2c_experimental_extras_bin_f00e4501a32b6068e15ab362af12d466
+  restat = 1
+
+build gen/libraries-experimental-extras.bin: $
+    js2c_target_js2c_experimental_extras_bin_f00e4501a32b6068e15ab362af12d466 $
+    ../../tools/js2c.py ../../test/cctest/test-experimental-extra.js
+
+build obj/src/js2c.actions_rules_copies.stamp: stamp gen/libraries.cc $
+    gen/libraries.bin gen/experimental-libraries.cc $
+    gen/libraries-experimental.bin gen/extras-libraries.cc $
+    gen/libraries-extras.bin gen/experimental-extras-libraries.cc $
+    gen/libraries-experimental-extras.bin
+

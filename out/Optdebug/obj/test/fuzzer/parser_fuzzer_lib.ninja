@@ -1,0 +1,25 @@
+defines = -DCR_CLANG_REVISION=273743-1 -DV8_TARGET_ARCH_X64 $
+    -DENABLE_GDB_JIT_INTERFACE -DV8_DEPRECATION_WARNINGS $
+    -DV8_IMMINENT_DEPRECATION_WARNINGS -DV8_I18N_SUPPORT $
+    -DV8_USE_EXTERNAL_STARTUP_DATA -DENABLE_DISASSEMBLER -DV8_ENABLE_CHECKS $
+    -DOBJECT_PRINT -DVERIFY_HEAP -DDEBUG -DTRACE_MAPS -D_GLIBCXX_DEBUG=1 $
+    -DENABLE_HANDLE_ZAPPING
+includes = -I../..
+cflags = -Wall -Werror -Wno-unused-parameter -pthread -pedantic $
+    -Wmissing-field-initializers -Wno-gnu-zero-variadic-macro-arguments $
+    -Wshorten-64-to-32 -fvisibility=hidden -fcolor-diagnostics $
+    -B/home/harsha/v8/third_party/binutils/Linux_x64/Release/bin $
+    -Wno-undefined-var-template $
+    -B/home/harsha/v8/third_party/binutils/Linux_x64/Release/bin $
+    --sysroot=/home/harsha/v8/build/linux/debian_wheezy_amd64-sysroot -m64 $
+    -m64 -g -Woverloaded-virtual  -Woverloaded-virtual -fdata-sections $
+    -ffunction-sections -O3 -fdata-sections -ffunction-sections -O3
+cflags_c = 
+cflags_cc = -Wnon-virtual-dtor -fno-exceptions -fno-rtti -std=gnu++11
+arflags = 
+
+build obj/test/fuzzer/parser_fuzzer_lib.parser.o: cxx $
+    ../../test/fuzzer/parser.cc
+
+build obj/test/fuzzer/libparser_fuzzer_lib.a: alink_thin $
+    obj/test/fuzzer/parser_fuzzer_lib.parser.o

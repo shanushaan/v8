@@ -1,0 +1,21 @@
+defines = -DCR_CLANG_REVISION=273743-1 -DV8_TARGET_ARCH_X64 $
+    -DGTEST_HAS_POSIX_RE=0 -DGTEST_LANG_CXX11=0 -DUNIT_TEST -DGTEST_HAS_RTTI=0
+includes = -I../../testing/gtest/include
+cflags = -Wno-unused-parameter -pthread -Wmissing-field-initializers $
+    -Wno-gnu-zero-variadic-macro-arguments -fvisibility=hidden $
+    -fcolor-diagnostics $
+    -B/home/harsha/v8/third_party/binutils/Linux_x64/Release/bin $
+    -Wno-undefined-var-template -Wno-deprecated-register $
+    -Wno-deprecated-declarations -Wno-logical-op-parentheses $
+    -Wno-tautological-compare -Wno-switch $
+    --sysroot=/home/harsha/v8/build/linux/debian_wheezy_amd64-sysroot -m64 $
+    -fdata-sections -ffunction-sections  -O3
+cflags_c = 
+cflags_cc = -fno-exceptions -fno-rtti -std=gnu++11
+arflags = 
+
+build obj/testing/gtest/src/gtest_main.gtest_main.o: cxx $
+    ../../testing/gtest/src/gtest_main.cc
+
+build obj/testing/libgtest_main.a: alink_thin $
+    obj/testing/gtest/src/gtest_main.gtest_main.o

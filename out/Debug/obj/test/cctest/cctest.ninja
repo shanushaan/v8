@@ -1,0 +1,704 @@
+build obj/test/cctest/cctest.actions_depends.stamp: stamp gen/resources.cc $
+    obj/src/libv8_libplatform.a $
+    obj/src/v8_maybe_snapshot.actions_depends.stamp obj/src/libv8_libbase.a $
+    obj/src/v8_maybe_snapshot.actions_depends.stamp obj/src/libv8_base.a $
+    obj/src/libv8_libsampler.a obj/third_party/icu/libicui18n.a $
+    obj/third_party/icu/libicuuc.a icudtl.dat icudtl.dat $
+    obj/src/libv8_external_snapshot.a $
+    obj/src/js2c.actions_rules_copies.stamp natives_blob.bin
+
+build obj/test/cctest/cctest.compile_depends.stamp: stamp gen/resources.cc $
+    snapshot_blob.bin snapshot_blob.bin icudtl.dat icudtl.dat icudtl.dat $
+    snapshot_blob.bin obj/src/js2c.actions_rules_copies.stamp natives_blob.bin
+
+defines = -DCR_CLANG_REVISION=273743-1 -DV8_TARGET_ARCH_X64 $
+    -DENABLE_GDB_JIT_INTERFACE -DV8_DEPRECATION_WARNINGS $
+    -DV8_IMMINENT_DEPRECATION_WARNINGS -DV8_I18N_SUPPORT $
+    -DV8_USE_EXTERNAL_STARTUP_DATA -DENABLE_DISASSEMBLER -DV8_ENABLE_CHECKS $
+    -DOBJECT_PRINT -DVERIFY_HEAP -DDEBUG -DTRACE_MAPS -D_GLIBCXX_DEBUG=1 $
+    -DENABLE_HANDLE_ZAPPING -DENABLE_SLOW_DCHECKS
+includes = -I../.. -I../../include
+cflags = -Wall -Werror -Wno-unused-parameter -pthread -pedantic $
+    -Wmissing-field-initializers -Wno-gnu-zero-variadic-macro-arguments $
+    -Wshorten-64-to-32 -fvisibility=hidden -fcolor-diagnostics $
+    -B/home/harsha/v8/third_party/binutils/Linux_x64/Release/bin $
+    -Wno-undefined-var-template $
+    -B/home/harsha/v8/third_party/binutils/Linux_x64/Release/bin $
+    --sysroot=/home/harsha/v8/build/linux/debian_wheezy_amd64-sysroot -m64 $
+    -m64 -g -O0 -Woverloaded-virtual  -Woverloaded-virtual -fdata-sections $
+    -ffunction-sections -fdata-sections -ffunction-sections
+cflags_c = 
+cflags_cc = -Wnon-virtual-dtor -fno-exceptions -fno-rtti -std=gnu++11
+arflags = 
+
+build obj/test/cctest/gen/cctest.resources.o: cxx gen/resources.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/compiler/cctest.codegen-tester.o: cxx $
+    ../../test/cctest/compiler/codegen-tester.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/compiler/cctest.test-basic-block-profiler.o: cxx $
+    ../../test/cctest/compiler/test-basic-block-profiler.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/compiler/cctest.test-branch-combine.o: cxx $
+    ../../test/cctest/compiler/test-branch-combine.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/compiler/cctest.test-gap-resolver.o: cxx $
+    ../../test/cctest/compiler/test-gap-resolver.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/compiler/cctest.test-graph-visualizer.o: cxx $
+    ../../test/cctest/compiler/test-graph-visualizer.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/compiler/cctest.test-code-assembler.o: cxx $
+    ../../test/cctest/compiler/test-code-assembler.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/compiler/cctest.test-instruction.o: cxx $
+    ../../test/cctest/compiler/test-instruction.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/compiler/cctest.test-js-context-specialization.o: cxx $
+    ../../test/cctest/compiler/test-js-context-specialization.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/compiler/cctest.test-js-constant-cache.o: cxx $
+    ../../test/cctest/compiler/test-js-constant-cache.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/compiler/cctest.test-js-typed-lowering.o: cxx $
+    ../../test/cctest/compiler/test-js-typed-lowering.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/compiler/cctest.test-jump-threading.o: cxx $
+    ../../test/cctest/compiler/test-jump-threading.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/compiler/cctest.test-linkage.o: cxx $
+    ../../test/cctest/compiler/test-linkage.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/compiler/cctest.test-loop-assignment-analysis.o: cxx $
+    ../../test/cctest/compiler/test-loop-assignment-analysis.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/compiler/cctest.test-loop-analysis.o: cxx $
+    ../../test/cctest/compiler/test-loop-analysis.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/compiler/cctest.test-machine-operator-reducer.o: cxx $
+    ../../test/cctest/compiler/test-machine-operator-reducer.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/compiler/cctest.test-multiple-return.o: cxx $
+    ../../test/cctest/compiler/test-multiple-return.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/compiler/cctest.test-node.o: cxx $
+    ../../test/cctest/compiler/test-node.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/compiler/cctest.test-operator.o: cxx $
+    ../../test/cctest/compiler/test-operator.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/compiler/cctest.test-osr.o: cxx $
+    ../../test/cctest/compiler/test-osr.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/compiler/cctest.test-representation-change.o: cxx $
+    ../../test/cctest/compiler/test-representation-change.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/compiler/cctest.test-run-bytecode-graph-builder.o: $
+    cxx ../../test/cctest/compiler/test-run-bytecode-graph-builder.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build $
+    obj/test/cctest/compiler/cctest.test-run-calls-to-external-references.o: $
+    cxx ../../test/cctest/compiler/test-run-calls-to-external-references.cc $
+    || obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/compiler/cctest.test-run-deopt.o: cxx $
+    ../../test/cctest/compiler/test-run-deopt.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/compiler/cctest.test-run-inlining.o: cxx $
+    ../../test/cctest/compiler/test-run-inlining.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/compiler/cctest.test-run-intrinsics.o: cxx $
+    ../../test/cctest/compiler/test-run-intrinsics.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/compiler/cctest.test-run-jsbranches.o: cxx $
+    ../../test/cctest/compiler/test-run-jsbranches.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/compiler/cctest.test-run-jscalls.o: cxx $
+    ../../test/cctest/compiler/test-run-jscalls.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/compiler/cctest.test-run-jsexceptions.o: cxx $
+    ../../test/cctest/compiler/test-run-jsexceptions.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/compiler/cctest.test-run-jsobjects.o: cxx $
+    ../../test/cctest/compiler/test-run-jsobjects.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/compiler/cctest.test-run-jsops.o: cxx $
+    ../../test/cctest/compiler/test-run-jsops.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/compiler/cctest.test-run-load-store.o: cxx $
+    ../../test/cctest/compiler/test-run-load-store.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/compiler/cctest.test-run-machops.o: cxx $
+    ../../test/cctest/compiler/test-run-machops.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/compiler/cctest.test-run-native-calls.o: cxx $
+    ../../test/cctest/compiler/test-run-native-calls.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/compiler/cctest.test-run-stackcheck.o: cxx $
+    ../../test/cctest/compiler/test-run-stackcheck.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/compiler/cctest.test-run-stubs.o: cxx $
+    ../../test/cctest/compiler/test-run-stubs.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/compiler/cctest.test-run-variables.o: cxx $
+    ../../test/cctest/compiler/test-run-variables.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/compiler/cctest.test-run-wasm-machops.o: cxx $
+    ../../test/cctest/compiler/test-run-wasm-machops.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/compiler/cctest.test-simplified-lowering.o: cxx $
+    ../../test/cctest/compiler/test-simplified-lowering.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.cctest.o: cxx ../../test/cctest/cctest.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.expression-type-collector.o: cxx $
+    ../../test/cctest/expression-type-collector.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/interpreter/cctest.interpreter-tester.o: cxx $
+    ../../test/cctest/interpreter/interpreter-tester.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/interpreter/cctest.source-position-matcher.o: cxx $
+    ../../test/cctest/interpreter/source-position-matcher.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/interpreter/cctest.test-bytecode-generator.o: cxx $
+    ../../test/cctest/interpreter/test-bytecode-generator.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/interpreter/cctest.test-interpreter.o: cxx $
+    ../../test/cctest/interpreter/test-interpreter.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/interpreter/cctest.test-interpreter-intrinsics.o: cxx $
+    ../../test/cctest/interpreter/test-interpreter-intrinsics.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/interpreter/cctest.test-source-positions.o: cxx $
+    ../../test/cctest/interpreter/test-source-positions.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/interpreter/cctest.bytecode-expectations-printer.o: $
+    cxx ../../test/cctest/interpreter/bytecode-expectations-printer.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.gay-fixed.o: cxx $
+    ../../test/cctest/gay-fixed.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.gay-precision.o: cxx $
+    ../../test/cctest/gay-precision.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.gay-shortest.o: cxx $
+    ../../test/cctest/gay-shortest.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/heap/cctest.heap-utils.o: cxx $
+    ../../test/cctest/heap/heap-utils.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/heap/cctest.test-alloc.o: cxx $
+    ../../test/cctest/heap/test-alloc.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/heap/cctest.test-array-buffer-tracker.o: cxx $
+    ../../test/cctest/heap/test-array-buffer-tracker.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/heap/cctest.test-compaction.o: cxx $
+    ../../test/cctest/heap/test-compaction.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/heap/cctest.test-heap.o: cxx $
+    ../../test/cctest/heap/test-heap.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/heap/cctest.test-incremental-marking.o: cxx $
+    ../../test/cctest/heap/test-incremental-marking.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/heap/cctest.test-lab.o: cxx $
+    ../../test/cctest/heap/test-lab.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/heap/cctest.test-mark-compact.o: cxx $
+    ../../test/cctest/heap/test-mark-compact.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/heap/cctest.test-page-promotion.o: cxx $
+    ../../test/cctest/heap/test-page-promotion.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/heap/cctest.test-spaces.o: cxx $
+    ../../test/cctest/heap/test-spaces.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/libsampler/cctest.test-sampler.o: cxx $
+    ../../test/cctest/libsampler/test-sampler.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.print-extension.o: cxx $
+    ../../test/cctest/print-extension.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.profiler-extension.o: cxx $
+    ../../test/cctest/profiler-extension.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-access-checks.o: cxx $
+    ../../test/cctest/test-access-checks.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-accessors.o: cxx $
+    ../../test/cctest/test-accessors.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-api.o: cxx ../../test/cctest/test-api.cc $
+    || obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-api-accessors.o: cxx $
+    ../../test/cctest/test-api-accessors.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-api-interceptors.o: cxx $
+    ../../test/cctest/test-api-interceptors.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-api-fast-accessor-builder.o: cxx $
+    ../../test/cctest/test-api-fast-accessor-builder.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-array-list.o: cxx $
+    ../../test/cctest/test-array-list.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-ast.o: cxx ../../test/cctest/test-ast.cc $
+    || obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-ast-expression-visitor.o: cxx $
+    ../../test/cctest/test-ast-expression-visitor.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-asm-validator.o: cxx $
+    ../../test/cctest/test-asm-validator.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-atomicops.o: cxx $
+    ../../test/cctest/test-atomicops.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-bignum.o: cxx $
+    ../../test/cctest/test-bignum.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-bignum-dtoa.o: cxx $
+    ../../test/cctest/test-bignum-dtoa.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-bit-vector.o: cxx $
+    ../../test/cctest/test-bit-vector.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-circular-queue.o: cxx $
+    ../../test/cctest/test-circular-queue.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-code-cache.o: cxx $
+    ../../test/cctest/test-code-cache.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-code-layout.o: cxx $
+    ../../test/cctest/test-code-layout.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-code-stub-assembler.o: cxx $
+    ../../test/cctest/test-code-stub-assembler.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-compiler.o: cxx $
+    ../../test/cctest/test-compiler.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-constantpool.o: cxx $
+    ../../test/cctest/test-constantpool.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-conversions.o: cxx $
+    ../../test/cctest/test-conversions.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-cpu-profiler.o: cxx $
+    ../../test/cctest/test-cpu-profiler.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-date.o: cxx $
+    ../../test/cctest/test-date.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-debug.o: cxx $
+    ../../test/cctest/test-debug.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-decls.o: cxx $
+    ../../test/cctest/test-decls.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-deoptimization.o: cxx $
+    ../../test/cctest/test-deoptimization.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-dictionary.o: cxx $
+    ../../test/cctest/test-dictionary.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-diy-fp.o: cxx $
+    ../../test/cctest/test-diy-fp.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-double.o: cxx $
+    ../../test/cctest/test-double.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-dtoa.o: cxx $
+    ../../test/cctest/test-dtoa.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-elements-kind.o: cxx $
+    ../../test/cctest/test-elements-kind.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-eh-frame-hdr.o: cxx $
+    ../../test/cctest/test-eh-frame-hdr.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-fast-dtoa.o: cxx $
+    ../../test/cctest/test-fast-dtoa.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-feedback-vector.o: cxx $
+    ../../test/cctest/test-feedback-vector.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-field-type-tracking.o: cxx $
+    ../../test/cctest/test-field-type-tracking.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-fixed-dtoa.o: cxx $
+    ../../test/cctest/test-fixed-dtoa.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-flags.o: cxx $
+    ../../test/cctest/test-flags.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-func-name-inference.o: cxx $
+    ../../test/cctest/test-func-name-inference.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-global-handles.o: cxx $
+    ../../test/cctest/test-global-handles.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-global-object.o: cxx $
+    ../../test/cctest/test-global-object.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-hashing.o: cxx $
+    ../../test/cctest/test-hashing.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-hashmap.o: cxx $
+    ../../test/cctest/test-hashmap.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-heap-profiler.o: cxx $
+    ../../test/cctest/test-heap-profiler.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-hydrogen-types.o: cxx $
+    ../../test/cctest/test-hydrogen-types.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-identity-map.o: cxx $
+    ../../test/cctest/test-identity-map.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-inobject-slack-tracking.o: cxx $
+    ../../test/cctest/test-inobject-slack-tracking.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-list.o: cxx $
+    ../../test/cctest/test-list.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-liveedit.o: cxx $
+    ../../test/cctest/test-liveedit.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-lockers.o: cxx $
+    ../../test/cctest/test-lockers.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-log.o: cxx ../../test/cctest/test-log.cc $
+    || obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-mementos.o: cxx $
+    ../../test/cctest/test-mementos.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-parsing.o: cxx $
+    ../../test/cctest/test-parsing.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-platform.o: cxx $
+    ../../test/cctest/test-platform.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-profile-generator.o: cxx $
+    ../../test/cctest/test-profile-generator.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-random-number-generator.o: cxx $
+    ../../test/cctest/test-random-number-generator.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-receiver-check-hidden-prototype.o: cxx $
+    ../../test/cctest/test-receiver-check-hidden-prototype.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-regexp.o: cxx $
+    ../../test/cctest/test-regexp.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-reloc-info.o: cxx $
+    ../../test/cctest/test-reloc-info.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-representation.o: cxx $
+    ../../test/cctest/test-representation.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-sampler-api.o: cxx $
+    ../../test/cctest/test-sampler-api.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-serialize.o: cxx $
+    ../../test/cctest/test-serialize.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-simd.o: cxx $
+    ../../test/cctest/test-simd.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-strings.o: cxx $
+    ../../test/cctest/test-strings.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-symbols.o: cxx $
+    ../../test/cctest/test-symbols.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-strtod.o: cxx $
+    ../../test/cctest/test-strtod.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-thread-termination.o: cxx $
+    ../../test/cctest/test-thread-termination.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-threads.o: cxx $
+    ../../test/cctest/test-threads.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-trace-event.o: cxx $
+    ../../test/cctest/test-trace-event.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-transitions.o: cxx $
+    ../../test/cctest/test-transitions.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-typedarrays.o: cxx $
+    ../../test/cctest/test-typedarrays.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-types.o: cxx $
+    ../../test/cctest/test-types.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-unbound-queue.o: cxx $
+    ../../test/cctest/test-unbound-queue.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-unboxed-doubles.o: cxx $
+    ../../test/cctest/test-unboxed-doubles.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-unique.o: cxx $
+    ../../test/cctest/test-unique.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-unscopables-hidden-prototype.o: cxx $
+    ../../test/cctest/test-unscopables-hidden-prototype.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-usecounters.o: cxx $
+    ../../test/cctest/test-usecounters.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-utils.o: cxx $
+    ../../test/cctest/test-utils.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-version.o: cxx $
+    ../../test/cctest/test-version.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-weakmaps.o: cxx $
+    ../../test/cctest/test-weakmaps.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-weaksets.o: cxx $
+    ../../test/cctest/test-weaksets.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.trace-extension.o: cxx $
+    ../../test/cctest/trace-extension.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/wasm/cctest.test-run-wasm.o: cxx $
+    ../../test/cctest/wasm/test-run-wasm.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/wasm/cctest.test-run-wasm-64.o: cxx $
+    ../../test/cctest/wasm/test-run-wasm-64.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/wasm/cctest.test-run-wasm-asmjs.o: cxx $
+    ../../test/cctest/wasm/test-run-wasm-asmjs.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/wasm/cctest.test-run-wasm-interpreter.o: cxx $
+    ../../test/cctest/wasm/test-run-wasm-interpreter.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/wasm/cctest.test-run-wasm-js.o: cxx $
+    ../../test/cctest/wasm/test-run-wasm-js.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/wasm/cctest.test-run-wasm-module.o: cxx $
+    ../../test/cctest/wasm/test-run-wasm-module.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/wasm/cctest.test-wasm-function-name-table.o: cxx $
+    ../../test/cctest/wasm/test-wasm-function-name-table.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/wasm/cctest.test-run-wasm-relocation.o: cxx $
+    ../../test/cctest/wasm/test-run-wasm-relocation.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/wasm/cctest.test-wasm-stack.o: cxx $
+    ../../test/cctest/wasm/test-wasm-stack.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/wasm/cctest.test-wasm-trap-position.o: cxx $
+    ../../test/cctest/wasm/test-wasm-trap-position.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-assembler-x64.o: cxx $
+    ../../test/cctest/test-assembler-x64.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-code-stubs.o: cxx $
+    ../../test/cctest/test-code-stubs.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-code-stubs-x64.o: cxx $
+    ../../test/cctest/test-code-stubs-x64.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-disasm-x64.o: cxx $
+    ../../test/cctest/test-disasm-x64.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-macro-assembler-x64.o: cxx $
+    ../../test/cctest/test-macro-assembler-x64.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-log-stack-tracer.o: cxx $
+    ../../test/cctest/test-log-stack-tracer.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-run-wasm-relocation-x64.o: cxx $
+    ../../test/cctest/test-run-wasm-relocation-x64.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+build obj/test/cctest/cctest.test-platform-linux.o: cxx $
+    ../../test/cctest/test-platform-linux.cc || $
+    obj/test/cctest/cctest.compile_depends.stamp
+
+ldflags = -B/home/harsha/v8/third_party/binutils/Linux_x64/Release/bin $
+    -pthread -fuse-ld=gold $
+    -B/home/harsha/v8/third_party/binutils/Linux_x64/Release/bin $
+    -fuse-ld=gold $
+    -B/home/harsha/v8/third_party/binutils/Linux_x64/Release/bin $
+    --sysroot=/home/harsha/v8/build/linux/debian_wheezy_amd64-sysroot $
+    -L/home/harsha/v8/build/linux/debian_wheezy_amd64-sysroot/lib/x86_64-linux-gnu $
+    -Wl,-rpath-link=/home/harsha/v8/build/linux/debian_wheezy_amd64-sysroot/lib/x86_64-linux-gnu $
+    -L/home/harsha/v8/build/linux/debian_wheezy_amd64-sysroot/usr/lib/x86_64-linux-gnu $
+    -Wl,-rpath-link=/home/harsha/v8/build/linux/debian_wheezy_amd64-sysroot/usr/lib/x86_64-linux-gnu $
+    -L/home/harsha/v8/build/linux/debian_wheezy_amd64-sysroot/usr/lib/gcc/x86_64-linux-gnu/4.6 $
+    -Wl,-rpath-link=/home/harsha/v8/build/linux/debian_wheezy_amd64-sysroot/usr/lib/gcc/x86_64-linux-gnu/4.6 $
+    -L/home/harsha/v8/build/linux/debian_wheezy_amd64-sysroot/usr/lib $
+    -Wl,-rpath-link=/home/harsha/v8/build/linux/debian_wheezy_amd64-sysroot/usr/lib $
+    -m64 -m64 -Wl,--threads -Wl,--thread-count=4 -Wl,--threads $
+    -Wl,--thread-count=4
+libs = -ldl -lrt
+build cctest: link obj/test/cctest/gen/cctest.resources.o $
+    obj/test/cctest/compiler/cctest.codegen-tester.o $
+    obj/test/cctest/compiler/cctest.test-basic-block-profiler.o $
+    obj/test/cctest/compiler/cctest.test-branch-combine.o $
+    obj/test/cctest/compiler/cctest.test-gap-resolver.o $
+    obj/test/cctest/compiler/cctest.test-graph-visualizer.o $
+    obj/test/cctest/compiler/cctest.test-code-assembler.o $
+    obj/test/cctest/compiler/cctest.test-instruction.o $
+    obj/test/cctest/compiler/cctest.test-js-context-specialization.o $
+    obj/test/cctest/compiler/cctest.test-js-constant-cache.o $
+    obj/test/cctest/compiler/cctest.test-js-typed-lowering.o $
+    obj/test/cctest/compiler/cctest.test-jump-threading.o $
+    obj/test/cctest/compiler/cctest.test-linkage.o $
+    obj/test/cctest/compiler/cctest.test-loop-assignment-analysis.o $
+    obj/test/cctest/compiler/cctest.test-loop-analysis.o $
+    obj/test/cctest/compiler/cctest.test-machine-operator-reducer.o $
+    obj/test/cctest/compiler/cctest.test-multiple-return.o $
+    obj/test/cctest/compiler/cctest.test-node.o $
+    obj/test/cctest/compiler/cctest.test-operator.o $
+    obj/test/cctest/compiler/cctest.test-osr.o $
+    obj/test/cctest/compiler/cctest.test-representation-change.o $
+    obj/test/cctest/compiler/cctest.test-run-bytecode-graph-builder.o $
+    obj/test/cctest/compiler/cctest.test-run-calls-to-external-references.o $
+    obj/test/cctest/compiler/cctest.test-run-deopt.o $
+    obj/test/cctest/compiler/cctest.test-run-inlining.o $
+    obj/test/cctest/compiler/cctest.test-run-intrinsics.o $
+    obj/test/cctest/compiler/cctest.test-run-jsbranches.o $
+    obj/test/cctest/compiler/cctest.test-run-jscalls.o $
+    obj/test/cctest/compiler/cctest.test-run-jsexceptions.o $
+    obj/test/cctest/compiler/cctest.test-run-jsobjects.o $
+    obj/test/cctest/compiler/cctest.test-run-jsops.o $
+    obj/test/cctest/compiler/cctest.test-run-load-store.o $
+    obj/test/cctest/compiler/cctest.test-run-machops.o $
+    obj/test/cctest/compiler/cctest.test-run-native-calls.o $
+    obj/test/cctest/compiler/cctest.test-run-stackcheck.o $
+    obj/test/cctest/compiler/cctest.test-run-stubs.o $
+    obj/test/cctest/compiler/cctest.test-run-variables.o $
+    obj/test/cctest/compiler/cctest.test-run-wasm-machops.o $
+    obj/test/cctest/compiler/cctest.test-simplified-lowering.o $
+    obj/test/cctest/cctest.cctest.o $
+    obj/test/cctest/cctest.expression-type-collector.o $
+    obj/test/cctest/interpreter/cctest.interpreter-tester.o $
+    obj/test/cctest/interpreter/cctest.source-position-matcher.o $
+    obj/test/cctest/interpreter/cctest.test-bytecode-generator.o $
+    obj/test/cctest/interpreter/cctest.test-interpreter.o $
+    obj/test/cctest/interpreter/cctest.test-interpreter-intrinsics.o $
+    obj/test/cctest/interpreter/cctest.test-source-positions.o $
+    obj/test/cctest/interpreter/cctest.bytecode-expectations-printer.o $
+    obj/test/cctest/cctest.gay-fixed.o $
+    obj/test/cctest/cctest.gay-precision.o $
+    obj/test/cctest/cctest.gay-shortest.o $
+    obj/test/cctest/heap/cctest.heap-utils.o $
+    obj/test/cctest/heap/cctest.test-alloc.o $
+    obj/test/cctest/heap/cctest.test-array-buffer-tracker.o $
+    obj/test/cctest/heap/cctest.test-compaction.o $
+    obj/test/cctest/heap/cctest.test-heap.o $
+    obj/test/cctest/heap/cctest.test-incremental-marking.o $
+    obj/test/cctest/heap/cctest.test-lab.o $
+    obj/test/cctest/heap/cctest.test-mark-compact.o $
+    obj/test/cctest/heap/cctest.test-page-promotion.o $
+    obj/test/cctest/heap/cctest.test-spaces.o $
+    obj/test/cctest/libsampler/cctest.test-sampler.o $
+    obj/test/cctest/cctest.print-extension.o $
+    obj/test/cctest/cctest.profiler-extension.o $
+    obj/test/cctest/cctest.test-access-checks.o $
+    obj/test/cctest/cctest.test-accessors.o $
+    obj/test/cctest/cctest.test-api.o $
+    obj/test/cctest/cctest.test-api-accessors.o $
+    obj/test/cctest/cctest.test-api-interceptors.o $
+    obj/test/cctest/cctest.test-api-fast-accessor-builder.o $
+    obj/test/cctest/cctest.test-array-list.o $
+    obj/test/cctest/cctest.test-ast.o $
+    obj/test/cctest/cctest.test-ast-expression-visitor.o $
+    obj/test/cctest/cctest.test-asm-validator.o $
+    obj/test/cctest/cctest.test-atomicops.o $
+    obj/test/cctest/cctest.test-bignum.o $
+    obj/test/cctest/cctest.test-bignum-dtoa.o $
+    obj/test/cctest/cctest.test-bit-vector.o $
+    obj/test/cctest/cctest.test-circular-queue.o $
+    obj/test/cctest/cctest.test-code-cache.o $
+    obj/test/cctest/cctest.test-code-layout.o $
+    obj/test/cctest/cctest.test-code-stub-assembler.o $
+    obj/test/cctest/cctest.test-compiler.o $
+    obj/test/cctest/cctest.test-constantpool.o $
+    obj/test/cctest/cctest.test-conversions.o $
+    obj/test/cctest/cctest.test-cpu-profiler.o $
+    obj/test/cctest/cctest.test-date.o obj/test/cctest/cctest.test-debug.o $
+    obj/test/cctest/cctest.test-decls.o $
+    obj/test/cctest/cctest.test-deoptimization.o $
+    obj/test/cctest/cctest.test-dictionary.o $
+    obj/test/cctest/cctest.test-diy-fp.o $
+    obj/test/cctest/cctest.test-double.o obj/test/cctest/cctest.test-dtoa.o $
+    obj/test/cctest/cctest.test-elements-kind.o $
+    obj/test/cctest/cctest.test-eh-frame-hdr.o $
+    obj/test/cctest/cctest.test-fast-dtoa.o $
+    obj/test/cctest/cctest.test-feedback-vector.o $
+    obj/test/cctest/cctest.test-field-type-tracking.o $
+    obj/test/cctest/cctest.test-fixed-dtoa.o $
+    obj/test/cctest/cctest.test-flags.o $
+    obj/test/cctest/cctest.test-func-name-inference.o $
+    obj/test/cctest/cctest.test-global-handles.o $
+    obj/test/cctest/cctest.test-global-object.o $
+    obj/test/cctest/cctest.test-hashing.o $
+    obj/test/cctest/cctest.test-hashmap.o $
+    obj/test/cctest/cctest.test-heap-profiler.o $
+    obj/test/cctest/cctest.test-hydrogen-types.o $
+    obj/test/cctest/cctest.test-identity-map.o $
+    obj/test/cctest/cctest.test-inobject-slack-tracking.o $
+    obj/test/cctest/cctest.test-list.o $
+    obj/test/cctest/cctest.test-liveedit.o $
+    obj/test/cctest/cctest.test-lockers.o obj/test/cctest/cctest.test-log.o $
+    obj/test/cctest/cctest.test-mementos.o $
+    obj/test/cctest/cctest.test-parsing.o $
+    obj/test/cctest/cctest.test-platform.o $
+    obj/test/cctest/cctest.test-profile-generator.o $
+    obj/test/cctest/cctest.test-random-number-generator.o $
+    obj/test/cctest/cctest.test-receiver-check-hidden-prototype.o $
+    obj/test/cctest/cctest.test-regexp.o $
+    obj/test/cctest/cctest.test-reloc-info.o $
+    obj/test/cctest/cctest.test-representation.o $
+    obj/test/cctest/cctest.test-sampler-api.o $
+    obj/test/cctest/cctest.test-serialize.o $
+    obj/test/cctest/cctest.test-simd.o $
+    obj/test/cctest/cctest.test-strings.o $
+    obj/test/cctest/cctest.test-symbols.o $
+    obj/test/cctest/cctest.test-strtod.o $
+    obj/test/cctest/cctest.test-thread-termination.o $
+    obj/test/cctest/cctest.test-threads.o $
+    obj/test/cctest/cctest.test-trace-event.o $
+    obj/test/cctest/cctest.test-transitions.o $
+    obj/test/cctest/cctest.test-typedarrays.o $
+    obj/test/cctest/cctest.test-types.o $
+    obj/test/cctest/cctest.test-unbound-queue.o $
+    obj/test/cctest/cctest.test-unboxed-doubles.o $
+    obj/test/cctest/cctest.test-unique.o $
+    obj/test/cctest/cctest.test-unscopables-hidden-prototype.o $
+    obj/test/cctest/cctest.test-usecounters.o $
+    obj/test/cctest/cctest.test-utils.o $
+    obj/test/cctest/cctest.test-version.o $
+    obj/test/cctest/cctest.test-weakmaps.o $
+    obj/test/cctest/cctest.test-weaksets.o $
+    obj/test/cctest/cctest.trace-extension.o $
+    obj/test/cctest/wasm/cctest.test-run-wasm.o $
+    obj/test/cctest/wasm/cctest.test-run-wasm-64.o $
+    obj/test/cctest/wasm/cctest.test-run-wasm-asmjs.o $
+    obj/test/cctest/wasm/cctest.test-run-wasm-interpreter.o $
+    obj/test/cctest/wasm/cctest.test-run-wasm-js.o $
+    obj/test/cctest/wasm/cctest.test-run-wasm-module.o $
+    obj/test/cctest/wasm/cctest.test-wasm-function-name-table.o $
+    obj/test/cctest/wasm/cctest.test-run-wasm-relocation.o $
+    obj/test/cctest/wasm/cctest.test-wasm-stack.o $
+    obj/test/cctest/wasm/cctest.test-wasm-trap-position.o $
+    obj/test/cctest/cctest.test-assembler-x64.o $
+    obj/test/cctest/cctest.test-code-stubs.o $
+    obj/test/cctest/cctest.test-code-stubs-x64.o $
+    obj/test/cctest/cctest.test-disasm-x64.o $
+    obj/test/cctest/cctest.test-macro-assembler-x64.o $
+    obj/test/cctest/cctest.test-log-stack-tracer.o $
+    obj/test/cctest/cctest.test-run-wasm-relocation-x64.o $
+    obj/test/cctest/cctest.test-platform-linux.o $
+    obj/src/libv8_libplatform.a obj/src/libv8_libbase.a $
+    obj/src/libv8_base.a obj/src/libv8_libsampler.a $
+    obj/third_party/icu/libicui18n.a obj/third_party/icu/libicuuc.a $
+    obj/src/libv8_external_snapshot.a | gen/resources.cc icudtl.dat $
+    natives_blob.bin obj/src/js2c.actions_rules_copies.stamp $
+    obj/src/v8_maybe_snapshot.actions_depends.stamp || $
+    obj/test/cctest/cctest.actions_depends.stamp
+  ld = $ldxx

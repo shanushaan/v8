@@ -1,0 +1,19 @@
+rule $
+    natives_blob_target_concatenate_natives_blob_f2fa1f0456d40271c940d29b70b7c8ef
+  command = cd ../../src; python ../tools/concatenate-files.py $
+      ../out/Optdebug/gen/libraries.bin $
+      ../out/Optdebug/gen/libraries-experimental.bin $
+      ../out/Optdebug/gen/libraries-extras.bin $
+      ../out/Optdebug/gen/libraries-experimental-extras.bin $
+      ../out/Optdebug/natives_blob.bin
+  description = ACTION natives_blob: $
+      concatenate_natives_blob_f2fa1f0456d40271c940d29b70b7c8ef
+  restat = 1
+
+build natives_blob.bin: $
+    natives_blob_target_concatenate_natives_blob_f2fa1f0456d40271c940d29b70b7c8ef $
+    ../../tools/concatenate-files.py gen/libraries.bin $
+    gen/libraries-experimental.bin gen/libraries-extras.bin $
+    gen/libraries-experimental-extras.bin || $
+    obj/src/js2c.actions_rules_copies.stamp
+

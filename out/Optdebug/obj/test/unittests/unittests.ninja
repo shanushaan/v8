@@ -1,0 +1,505 @@
+build obj/test/unittests/unittests.actions_depends.stamp: stamp $
+    obj/testing/libgmock.a obj/testing/libgtest.a $
+    obj/src/libv8_libplatform.a $
+    obj/src/v8_maybe_snapshot.actions_depends.stamp obj/src/libv8_libbase.a $
+    obj/src/v8_maybe_snapshot.actions_depends.stamp obj/src/libv8_base.a $
+    obj/src/libv8_libsampler.a obj/third_party/icu/libicui18n.a $
+    obj/third_party/icu/libicuuc.a icudtl.dat icudtl.dat $
+    obj/src/libv8_external_snapshot.a $
+    obj/src/js2c.actions_rules_copies.stamp natives_blob.bin
+
+build obj/test/unittests/unittests.compile_depends.stamp: stamp $
+    snapshot_blob.bin snapshot_blob.bin icudtl.dat icudtl.dat icudtl.dat $
+    snapshot_blob.bin obj/src/js2c.actions_rules_copies.stamp natives_blob.bin
+
+defines = -DCR_CLANG_REVISION=273743-1 -DV8_TARGET_ARCH_X64 $
+    -DENABLE_GDB_JIT_INTERFACE -DV8_DEPRECATION_WARNINGS $
+    -DV8_IMMINENT_DEPRECATION_WARNINGS -DV8_I18N_SUPPORT $
+    -DV8_USE_EXTERNAL_STARTUP_DATA -DGTEST_HAS_POSIX_RE=0 $
+    -DGTEST_LANG_CXX11=0 -DUNIT_TEST -DGTEST_HAS_RTTI=0 $
+    -DENABLE_DISASSEMBLER -DV8_ENABLE_CHECKS -DOBJECT_PRINT -DVERIFY_HEAP $
+    -DDEBUG -DTRACE_MAPS -D_GLIBCXX_DEBUG=1 -DENABLE_HANDLE_ZAPPING
+includes = -I../.. -I../../testing/gmock/include $
+    -I../../testing/gtest/include -I../../include
+cflags = -Wall -Werror -Wno-unused-parameter -pthread $
+    -Wmissing-field-initializers -Wno-gnu-zero-variadic-macro-arguments $
+    -Wshorten-64-to-32 -fvisibility=hidden -fcolor-diagnostics $
+    -B/home/harsha/v8/third_party/binutils/Linux_x64/Release/bin $
+    -Wno-undefined-var-template $
+    -B/home/harsha/v8/third_party/binutils/Linux_x64/Release/bin $
+    --sysroot=/home/harsha/v8/build/linux/debian_wheezy_amd64-sysroot -m64 $
+    -m64 -g -Woverloaded-virtual  -Woverloaded-virtual -fdata-sections $
+    -ffunction-sections -O3 -fdata-sections -ffunction-sections -O3
+cflags_c = 
+cflags_cc = -Wnon-virtual-dtor -fno-exceptions -fno-rtti -std=gnu++11
+arflags = 
+
+build obj/test/unittests/base/unittests.atomic-utils-unittest.o: cxx $
+    ../../test/unittests/base/atomic-utils-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/base/unittests.bits-unittest.o: cxx $
+    ../../test/unittests/base/bits-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/base/unittests.cpu-unittest.o: cxx $
+    ../../test/unittests/base/cpu-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/base/unittests.division-by-constant-unittest.o: $
+    cxx ../../test/unittests/base/division-by-constant-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/base/unittests.flags-unittest.o: cxx $
+    ../../test/unittests/base/flags-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/base/unittests.functional-unittest.o: cxx $
+    ../../test/unittests/base/functional-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/base/unittests.ieee754-unittest.o: cxx $
+    ../../test/unittests/base/ieee754-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/base/unittests.logging-unittest.o: cxx $
+    ../../test/unittests/base/logging-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/base/unittests.iterator-unittest.o: cxx $
+    ../../test/unittests/base/iterator-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build $
+    obj/test/unittests/base/platform/unittests.condition-variable-unittest.o: $
+    cxx ../../test/unittests/base/platform/condition-variable-unittest.cc $
+    || obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/base/platform/unittests.mutex-unittest.o: cxx $
+    ../../test/unittests/base/platform/mutex-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/base/platform/unittests.platform-unittest.o: cxx $
+    ../../test/unittests/base/platform/platform-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/base/platform/unittests.semaphore-unittest.o: cxx $
+    ../../test/unittests/base/platform/semaphore-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/base/platform/unittests.time-unittest.o: cxx $
+    ../../test/unittests/base/platform/time-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/base/unittests.sys-info-unittest.o: cxx $
+    ../../test/unittests/base/sys-info-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build $
+    obj/test/unittests/base/utils/unittests.random-number-generator-unittest.o: $
+    cxx ../../test/unittests/base/utils/random-number-generator-unittest.cc $
+    || obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/unittests.cancelable-tasks-unittest.o: cxx $
+    ../../test/unittests/cancelable-tasks-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/unittests.char-predicates-unittest.o: cxx $
+    ../../test/unittests/char-predicates-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/compiler/unittests.branch-elimination-unittest.o: $
+    cxx ../../test/unittests/compiler/branch-elimination-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build $
+    obj/test/unittests/compiler/unittests.checkpoint-elimination-unittest.o: $
+    cxx ../../test/unittests/compiler/checkpoint-elimination-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build $
+    obj/test/unittests/compiler/unittests.common-operator-reducer-unittest.o: $
+    cxx ../../test/unittests/compiler/common-operator-reducer-unittest.cc $
+    || obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/compiler/unittests.common-operator-unittest.o: cxx $
+    ../../test/unittests/compiler/common-operator-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/compiler/unittests.control-equivalence-unittest.o: $
+    cxx ../../test/unittests/compiler/control-equivalence-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build $
+    obj/test/unittests/compiler/unittests.control-flow-optimizer-unittest.o: $
+    cxx ../../test/unittests/compiler/control-flow-optimizer-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build $
+    obj/test/unittests/compiler/unittests.dead-code-elimination-unittest.o: $
+    cxx ../../test/unittests/compiler/dead-code-elimination-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/compiler/unittests.diamond-unittest.o: cxx $
+    ../../test/unittests/compiler/diamond-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build $
+    obj/test/unittests/compiler/unittests.effect-control-linearizer-unittest.o: $
+    cxx ../../test/unittests/compiler/effect-control-linearizer-unittest.cc $
+    || obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/compiler/unittests.escape-analysis-unittest.o: cxx $
+    ../../test/unittests/compiler/escape-analysis-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/compiler/unittests.graph-reducer-unittest.o: cxx $
+    ../../test/unittests/compiler/graph-reducer-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/compiler/unittests.graph-trimmer-unittest.o: cxx $
+    ../../test/unittests/compiler/graph-trimmer-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/compiler/unittests.graph-unittest.o: cxx $
+    ../../test/unittests/compiler/graph-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build $
+    obj/test/unittests/compiler/unittests.instruction-selector-unittest.o: $
+    cxx ../../test/unittests/compiler/instruction-selector-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build $
+    obj/test/unittests/compiler/unittests.instruction-sequence-unittest.o: $
+    cxx ../../test/unittests/compiler/instruction-sequence-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/compiler/unittests.int64-lowering-unittest.o: cxx $
+    ../../test/unittests/compiler/int64-lowering-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/compiler/unittests.js-builtin-reducer-unittest.o: $
+    cxx ../../test/unittests/compiler/js-builtin-reducer-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/compiler/unittests.js-create-lowering-unittest.o: $
+    cxx ../../test/unittests/compiler/js-create-lowering-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build $
+    obj/test/unittests/compiler/unittests.js-intrinsic-lowering-unittest.o: $
+    cxx ../../test/unittests/compiler/js-intrinsic-lowering-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/compiler/unittests.js-operator-unittest.o: cxx $
+    ../../test/unittests/compiler/js-operator-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/compiler/unittests.js-typed-lowering-unittest.o: $
+    cxx ../../test/unittests/compiler/js-typed-lowering-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/compiler/unittests.linkage-tail-call-unittest.o: $
+    cxx ../../test/unittests/compiler/linkage-tail-call-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/compiler/unittests.liveness-analyzer-unittest.o: $
+    cxx ../../test/unittests/compiler/liveness-analyzer-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/compiler/unittests.live-range-unittest.o: cxx $
+    ../../test/unittests/compiler/live-range-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/compiler/unittests.load-elimination-unittest.o: $
+    cxx ../../test/unittests/compiler/load-elimination-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/compiler/unittests.loop-peeling-unittest.o: cxx $
+    ../../test/unittests/compiler/loop-peeling-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build $
+    obj/test/unittests/compiler/unittests.machine-operator-reducer-unittest.o: $
+    cxx ../../test/unittests/compiler/machine-operator-reducer-unittest.cc $
+    || obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/compiler/unittests.machine-operator-unittest.o: $
+    cxx ../../test/unittests/compiler/machine-operator-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/compiler/unittests.move-optimizer-unittest.o: cxx $
+    ../../test/unittests/compiler/move-optimizer-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/compiler/unittests.node-cache-unittest.o: cxx $
+    ../../test/unittests/compiler/node-cache-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/compiler/unittests.node-matchers-unittest.o: cxx $
+    ../../test/unittests/compiler/node-matchers-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/compiler/unittests.node-properties-unittest.o: cxx $
+    ../../test/unittests/compiler/node-properties-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/compiler/unittests.node-test-utils.o: cxx $
+    ../../test/unittests/compiler/node-test-utils.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/compiler/unittests.node-unittest.o: cxx $
+    ../../test/unittests/compiler/node-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/compiler/unittests.opcodes-unittest.o: cxx $
+    ../../test/unittests/compiler/opcodes-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/compiler/unittests.register-allocator-unittest.o: $
+    cxx ../../test/unittests/compiler/register-allocator-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/compiler/unittests.schedule-unittest.o: cxx $
+    ../../test/unittests/compiler/schedule-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/compiler/unittests.scheduler-unittest.o: cxx $
+    ../../test/unittests/compiler/scheduler-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/compiler/unittests.scheduler-rpo-unittest.o: cxx $
+    ../../test/unittests/compiler/scheduler-rpo-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build $
+    obj/test/unittests/compiler/unittests.simplified-operator-reducer-unittest.o: $
+    cxx $
+    ../../test/unittests/compiler/simplified-operator-reducer-unittest.cc $
+    || obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/compiler/unittests.simplified-operator-unittest.o: $
+    cxx ../../test/unittests/compiler/simplified-operator-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/compiler/unittests.state-values-utils-unittest.o: $
+    cxx ../../test/unittests/compiler/state-values-utils-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build $
+    obj/test/unittests/compiler/unittests.tail-call-optimization-unittest.o: $
+    cxx ../../test/unittests/compiler/tail-call-optimization-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/compiler/unittests.typer-unittest.o: cxx $
+    ../../test/unittests/compiler/typer-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build $
+    obj/test/unittests/compiler/unittests.value-numbering-reducer-unittest.o: $
+    cxx ../../test/unittests/compiler/value-numbering-reducer-unittest.cc $
+    || obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/compiler/unittests.zone-pool-unittest.o: cxx $
+    ../../test/unittests/compiler/zone-pool-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/unittests.counters-unittest.o: cxx $
+    ../../test/unittests/counters-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/interpreter/unittests.bytecodes-unittest.o: cxx $
+    ../../test/unittests/interpreter/bytecodes-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build $
+    obj/test/unittests/interpreter/unittests.bytecode-array-builder-unittest.o: $
+    cxx ../../test/unittests/interpreter/bytecode-array-builder-unittest.cc $
+    || obj/test/unittests/unittests.compile_depends.stamp
+build $
+    obj/test/unittests/interpreter/unittests.bytecode-array-iterator-unittest.o: $
+    cxx $
+    ../../test/unittests/interpreter/bytecode-array-iterator-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build $
+    obj/test/unittests/interpreter/unittests.bytecode-array-writer-unittest.o: $
+    cxx ../../test/unittests/interpreter/bytecode-array-writer-unittest.cc $
+    || obj/test/unittests/unittests.compile_depends.stamp
+build $
+    obj/test/unittests/interpreter/unittests.bytecode-dead-code-optimizer-unittest.o: $
+    cxx $
+    ../../test/unittests/interpreter/bytecode-dead-code-optimizer-unittest.cc $
+    || obj/test/unittests/unittests.compile_depends.stamp
+build $
+    obj/test/unittests/interpreter/unittests.bytecode-peephole-optimizer-unittest.o: $
+    cxx $
+    ../../test/unittests/interpreter/bytecode-peephole-optimizer-unittest.cc $
+    || obj/test/unittests/unittests.compile_depends.stamp
+build $
+    obj/test/unittests/interpreter/unittests.bytecode-pipeline-unittest.o: $
+    cxx ../../test/unittests/interpreter/bytecode-pipeline-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build $
+    obj/test/unittests/interpreter/unittests.bytecode-register-allocator-unittest.o: $
+    cxx $
+    ../../test/unittests/interpreter/bytecode-register-allocator-unittest.cc $
+    || obj/test/unittests/unittests.compile_depends.stamp
+build $
+    obj/test/unittests/interpreter/unittests.bytecode-register-optimizer-unittest.o: $
+    cxx $
+    ../../test/unittests/interpreter/bytecode-register-optimizer-unittest.cc $
+    || obj/test/unittests/unittests.compile_depends.stamp
+build $
+    obj/test/unittests/interpreter/unittests.constant-array-builder-unittest.o: $
+    cxx ../../test/unittests/interpreter/constant-array-builder-unittest.cc $
+    || obj/test/unittests/unittests.compile_depends.stamp
+build $
+    obj/test/unittests/interpreter/unittests.interpreter-assembler-unittest.o: $
+    cxx ../../test/unittests/interpreter/interpreter-assembler-unittest.cc $
+    || obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/libplatform/unittests.default-platform-unittest.o: $
+    cxx ../../test/unittests/libplatform/default-platform-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/libplatform/unittests.task-queue-unittest.o: cxx $
+    ../../test/unittests/libplatform/task-queue-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/libplatform/unittests.worker-thread-unittest.o: $
+    cxx ../../test/unittests/libplatform/worker-thread-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/heap/unittests.bitmap-unittest.o: cxx $
+    ../../test/unittests/heap/bitmap-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/heap/unittests.gc-idle-time-handler-unittest.o: $
+    cxx ../../test/unittests/heap/gc-idle-time-handler-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/heap/unittests.gc-tracer-unittest.o: cxx $
+    ../../test/unittests/heap/gc-tracer-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/heap/unittests.memory-reducer-unittest.o: cxx $
+    ../../test/unittests/heap/memory-reducer-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/heap/unittests.heap-unittest.o: cxx $
+    ../../test/unittests/heap/heap-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/heap/unittests.scavenge-job-unittest.o: cxx $
+    ../../test/unittests/heap/scavenge-job-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/heap/unittests.slot-set-unittest.o: cxx $
+    ../../test/unittests/heap/slot-set-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/unittests.locked-queue-unittest.o: cxx $
+    ../../test/unittests/locked-queue-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/unittests.register-configuration-unittest.o: cxx $
+    ../../test/unittests/register-configuration-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/unittests.run-all-unittests.o: cxx $
+    ../../test/unittests/run-all-unittests.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/unittests.source-position-table-unittest.o: cxx $
+    ../../test/unittests/source-position-table-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/unittests.test-utils.o: cxx $
+    ../../test/unittests/test-utils.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/wasm/unittests.asm-types-unittest.o: cxx $
+    ../../test/unittests/wasm/asm-types-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/wasm/unittests.ast-decoder-unittest.o: cxx $
+    ../../test/unittests/wasm/ast-decoder-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/wasm/unittests.control-transfer-unittest.o: cxx $
+    ../../test/unittests/wasm/control-transfer-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/wasm/unittests.decoder-unittest.o: cxx $
+    ../../test/unittests/wasm/decoder-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/wasm/unittests.encoder-unittest.o: cxx $
+    ../../test/unittests/wasm/encoder-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/wasm/unittests.leb-helper-unittest.o: cxx $
+    ../../test/unittests/wasm/leb-helper-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build $
+    obj/test/unittests/wasm/unittests.loop-assignment-analysis-unittest.o: $
+    cxx ../../test/unittests/wasm/loop-assignment-analysis-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/wasm/unittests.module-decoder-unittest.o: cxx $
+    ../../test/unittests/wasm/module-decoder-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/wasm/unittests.switch-logic-unittest.o: cxx $
+    ../../test/unittests/wasm/switch-logic-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build obj/test/unittests/wasm/unittests.wasm-macro-gen-unittest.o: cxx $
+    ../../test/unittests/wasm/wasm-macro-gen-unittest.cc || $
+    obj/test/unittests/unittests.compile_depends.stamp
+build $
+    obj/test/unittests/compiler/x64/unittests.instruction-selector-x64-unittest.o: $
+    cxx $
+    ../../test/unittests/compiler/x64/instruction-selector-x64-unittest.cc $
+    || obj/test/unittests/unittests.compile_depends.stamp
+
+ldflags = -B/home/harsha/v8/third_party/binutils/Linux_x64/Release/bin $
+    -pthread -fuse-ld=gold $
+    -B/home/harsha/v8/third_party/binutils/Linux_x64/Release/bin $
+    -fuse-ld=gold $
+    -B/home/harsha/v8/third_party/binutils/Linux_x64/Release/bin $
+    --sysroot=/home/harsha/v8/build/linux/debian_wheezy_amd64-sysroot $
+    -L/home/harsha/v8/build/linux/debian_wheezy_amd64-sysroot/lib/x86_64-linux-gnu $
+    -Wl,-rpath-link=/home/harsha/v8/build/linux/debian_wheezy_amd64-sysroot/lib/x86_64-linux-gnu $
+    -L/home/harsha/v8/build/linux/debian_wheezy_amd64-sysroot/usr/lib/x86_64-linux-gnu $
+    -Wl,-rpath-link=/home/harsha/v8/build/linux/debian_wheezy_amd64-sysroot/usr/lib/x86_64-linux-gnu $
+    -L/home/harsha/v8/build/linux/debian_wheezy_amd64-sysroot/usr/lib/gcc/x86_64-linux-gnu/4.6 $
+    -Wl,-rpath-link=/home/harsha/v8/build/linux/debian_wheezy_amd64-sysroot/usr/lib/gcc/x86_64-linux-gnu/4.6 $
+    -L/home/harsha/v8/build/linux/debian_wheezy_amd64-sysroot/usr/lib $
+    -Wl,-rpath-link=/home/harsha/v8/build/linux/debian_wheezy_amd64-sysroot/usr/lib $
+    -m64 -m64 -Wl,--threads -Wl,--thread-count=4 -Wl,--threads $
+    -Wl,--thread-count=4
+libs = -ldl -lrt
+build unittests: link $
+    obj/test/unittests/base/unittests.atomic-utils-unittest.o $
+    obj/test/unittests/base/unittests.bits-unittest.o $
+    obj/test/unittests/base/unittests.cpu-unittest.o $
+    obj/test/unittests/base/unittests.division-by-constant-unittest.o $
+    obj/test/unittests/base/unittests.flags-unittest.o $
+    obj/test/unittests/base/unittests.functional-unittest.o $
+    obj/test/unittests/base/unittests.ieee754-unittest.o $
+    obj/test/unittests/base/unittests.logging-unittest.o $
+    obj/test/unittests/base/unittests.iterator-unittest.o $
+    obj/test/unittests/base/platform/unittests.condition-variable-unittest.o $
+    obj/test/unittests/base/platform/unittests.mutex-unittest.o $
+    obj/test/unittests/base/platform/unittests.platform-unittest.o $
+    obj/test/unittests/base/platform/unittests.semaphore-unittest.o $
+    obj/test/unittests/base/platform/unittests.time-unittest.o $
+    obj/test/unittests/base/unittests.sys-info-unittest.o $
+    obj/test/unittests/base/utils/unittests.random-number-generator-unittest.o $
+    obj/test/unittests/unittests.cancelable-tasks-unittest.o $
+    obj/test/unittests/unittests.char-predicates-unittest.o $
+    obj/test/unittests/compiler/unittests.branch-elimination-unittest.o $
+    obj/test/unittests/compiler/unittests.checkpoint-elimination-unittest.o $
+    obj/test/unittests/compiler/unittests.common-operator-reducer-unittest.o $
+    obj/test/unittests/compiler/unittests.common-operator-unittest.o $
+    obj/test/unittests/compiler/unittests.control-equivalence-unittest.o $
+    obj/test/unittests/compiler/unittests.control-flow-optimizer-unittest.o $
+    obj/test/unittests/compiler/unittests.dead-code-elimination-unittest.o $
+    obj/test/unittests/compiler/unittests.diamond-unittest.o $
+    obj/test/unittests/compiler/unittests.effect-control-linearizer-unittest.o $
+    obj/test/unittests/compiler/unittests.escape-analysis-unittest.o $
+    obj/test/unittests/compiler/unittests.graph-reducer-unittest.o $
+    obj/test/unittests/compiler/unittests.graph-trimmer-unittest.o $
+    obj/test/unittests/compiler/unittests.graph-unittest.o $
+    obj/test/unittests/compiler/unittests.instruction-selector-unittest.o $
+    obj/test/unittests/compiler/unittests.instruction-sequence-unittest.o $
+    obj/test/unittests/compiler/unittests.int64-lowering-unittest.o $
+    obj/test/unittests/compiler/unittests.js-builtin-reducer-unittest.o $
+    obj/test/unittests/compiler/unittests.js-create-lowering-unittest.o $
+    obj/test/unittests/compiler/unittests.js-intrinsic-lowering-unittest.o $
+    obj/test/unittests/compiler/unittests.js-operator-unittest.o $
+    obj/test/unittests/compiler/unittests.js-typed-lowering-unittest.o $
+    obj/test/unittests/compiler/unittests.linkage-tail-call-unittest.o $
+    obj/test/unittests/compiler/unittests.liveness-analyzer-unittest.o $
+    obj/test/unittests/compiler/unittests.live-range-unittest.o $
+    obj/test/unittests/compiler/unittests.load-elimination-unittest.o $
+    obj/test/unittests/compiler/unittests.loop-peeling-unittest.o $
+    obj/test/unittests/compiler/unittests.machine-operator-reducer-unittest.o $
+    obj/test/unittests/compiler/unittests.machine-operator-unittest.o $
+    obj/test/unittests/compiler/unittests.move-optimizer-unittest.o $
+    obj/test/unittests/compiler/unittests.node-cache-unittest.o $
+    obj/test/unittests/compiler/unittests.node-matchers-unittest.o $
+    obj/test/unittests/compiler/unittests.node-properties-unittest.o $
+    obj/test/unittests/compiler/unittests.node-test-utils.o $
+    obj/test/unittests/compiler/unittests.node-unittest.o $
+    obj/test/unittests/compiler/unittests.opcodes-unittest.o $
+    obj/test/unittests/compiler/unittests.register-allocator-unittest.o $
+    obj/test/unittests/compiler/unittests.schedule-unittest.o $
+    obj/test/unittests/compiler/unittests.scheduler-unittest.o $
+    obj/test/unittests/compiler/unittests.scheduler-rpo-unittest.o $
+    obj/test/unittests/compiler/unittests.simplified-operator-reducer-unittest.o $
+    obj/test/unittests/compiler/unittests.simplified-operator-unittest.o $
+    obj/test/unittests/compiler/unittests.state-values-utils-unittest.o $
+    obj/test/unittests/compiler/unittests.tail-call-optimization-unittest.o $
+    obj/test/unittests/compiler/unittests.typer-unittest.o $
+    obj/test/unittests/compiler/unittests.value-numbering-reducer-unittest.o $
+    obj/test/unittests/compiler/unittests.zone-pool-unittest.o $
+    obj/test/unittests/unittests.counters-unittest.o $
+    obj/test/unittests/interpreter/unittests.bytecodes-unittest.o $
+    obj/test/unittests/interpreter/unittests.bytecode-array-builder-unittest.o $
+    obj/test/unittests/interpreter/unittests.bytecode-array-iterator-unittest.o $
+    obj/test/unittests/interpreter/unittests.bytecode-array-writer-unittest.o $
+    obj/test/unittests/interpreter/unittests.bytecode-dead-code-optimizer-unittest.o $
+    obj/test/unittests/interpreter/unittests.bytecode-peephole-optimizer-unittest.o $
+    obj/test/unittests/interpreter/unittests.bytecode-pipeline-unittest.o $
+    obj/test/unittests/interpreter/unittests.bytecode-register-allocator-unittest.o $
+    obj/test/unittests/interpreter/unittests.bytecode-register-optimizer-unittest.o $
+    obj/test/unittests/interpreter/unittests.constant-array-builder-unittest.o $
+    obj/test/unittests/interpreter/unittests.interpreter-assembler-unittest.o $
+    obj/test/unittests/libplatform/unittests.default-platform-unittest.o $
+    obj/test/unittests/libplatform/unittests.task-queue-unittest.o $
+    obj/test/unittests/libplatform/unittests.worker-thread-unittest.o $
+    obj/test/unittests/heap/unittests.bitmap-unittest.o $
+    obj/test/unittests/heap/unittests.gc-idle-time-handler-unittest.o $
+    obj/test/unittests/heap/unittests.gc-tracer-unittest.o $
+    obj/test/unittests/heap/unittests.memory-reducer-unittest.o $
+    obj/test/unittests/heap/unittests.heap-unittest.o $
+    obj/test/unittests/heap/unittests.scavenge-job-unittest.o $
+    obj/test/unittests/heap/unittests.slot-set-unittest.o $
+    obj/test/unittests/unittests.locked-queue-unittest.o $
+    obj/test/unittests/unittests.register-configuration-unittest.o $
+    obj/test/unittests/unittests.run-all-unittests.o $
+    obj/test/unittests/unittests.source-position-table-unittest.o $
+    obj/test/unittests/unittests.test-utils.o $
+    obj/test/unittests/wasm/unittests.asm-types-unittest.o $
+    obj/test/unittests/wasm/unittests.ast-decoder-unittest.o $
+    obj/test/unittests/wasm/unittests.control-transfer-unittest.o $
+    obj/test/unittests/wasm/unittests.decoder-unittest.o $
+    obj/test/unittests/wasm/unittests.encoder-unittest.o $
+    obj/test/unittests/wasm/unittests.leb-helper-unittest.o $
+    obj/test/unittests/wasm/unittests.loop-assignment-analysis-unittest.o $
+    obj/test/unittests/wasm/unittests.module-decoder-unittest.o $
+    obj/test/unittests/wasm/unittests.switch-logic-unittest.o $
+    obj/test/unittests/wasm/unittests.wasm-macro-gen-unittest.o $
+    obj/test/unittests/compiler/x64/unittests.instruction-selector-x64-unittest.o $
+    obj/testing/libgmock.a obj/testing/libgtest.a $
+    obj/src/libv8_libplatform.a obj/src/libv8_libbase.a $
+    obj/src/libv8_base.a obj/src/libv8_libsampler.a $
+    obj/third_party/icu/libicui18n.a obj/third_party/icu/libicuuc.a $
+    obj/src/libv8_external_snapshot.a | icudtl.dat natives_blob.bin $
+    obj/src/js2c.actions_rules_copies.stamp $
+    obj/src/v8_maybe_snapshot.actions_depends.stamp || $
+    obj/test/unittests/unittests.actions_depends.stamp
+  ld = $ldxx

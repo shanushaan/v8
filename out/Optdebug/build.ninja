@@ -1,0 +1,149 @@
+cc = /home/harsha/v8/third_party/llvm-build/Release+Asserts/bin/clang
+cxx = /home/harsha/v8/third_party/llvm-build/Release+Asserts/bin/clang++
+ld = $cc
+ldxx = $cxx
+ar = ar
+nm = nm
+readelf = readelf
+
+pool link_pool
+  depth = 7
+
+rule cc
+  command = $cc -MMD -MF $out.d $defines $includes $cflags $cflags_c $cflags_pch_c -c $in -o $out
+  description = CC $out
+  depfile = $out.d
+  deps = gcc
+rule cc_s
+  command = $cc $defines $includes $cflags $cflags_c $cflags_pch_c -c $in -o $out
+  description = CC $out
+rule cxx
+  command = $cxx -MMD -MF $out.d $defines $includes $cflags $cflags_cc $cflags_pch_cc -c $in -o $out
+  description = CXX $out
+  depfile = $out.d
+  deps = gcc
+rule alink
+  command = rm -f $out && $ar rcs $arflags $out $in
+  description = AR $out
+rule alink_thin
+  command = rm -f $out && $ar rcsT $arflags $out $in
+  description = AR $out
+rule solink
+  command = if [ ! -e $lib -o ! -e $lib.TOC ]; then $ld -shared $ldflags -o $lib -Wl,-soname=$soname @$link_file_list $
+      && { $readelf -d $lib | grep SONAME ; $nm -gD -f p $lib | cut -f1-2 -d' '; } > $lib.TOC; else $ld -shared $
+      $ldflags -o $lib -Wl,-soname=$soname @$link_file_list && { $readelf -d $lib | grep SONAME ; $nm -gD -f p $lib | $
+      cut -f1-2 -d' '; } > $lib.tmp && if ! cmp -s $lib.tmp $lib.TOC; then mv $lib.tmp $lib.TOC ; fi; fi
+  description = SOLINK $lib
+  pool = link_pool
+  restat = 1
+  rspfile = $link_file_list
+  rspfile_content = -Wl,--whole-archive $in $solibs -Wl,--no-whole-archive $libs
+rule solink_module
+  command = if [ ! -e $lib -o ! -e $lib.TOC ]; then $ld -shared $ldflags -o $lib -Wl,-soname=$soname @$link_file_list $
+      && { $readelf -d $lib | grep SONAME ; $nm -gD -f p $lib | cut -f1-2 -d' '; } > $lib.TOC; else $ld -shared $
+      $ldflags -o $lib -Wl,-soname=$soname @$link_file_list && { $readelf -d $lib | grep SONAME ; $nm -gD -f p $lib | $
+      cut -f1-2 -d' '; } > $lib.tmp && if ! cmp -s $lib.tmp $lib.TOC; then mv $lib.tmp $lib.TOC ; fi; fi
+  description = SOLINK(module) $lib
+  pool = link_pool
+  restat = 1
+  rspfile = $link_file_list
+  rspfile_content = -Wl,--start-group $in -Wl,--end-group $solibs $libs
+rule link
+  command = $ld $ldflags -o $out -Wl,--start-group $in -Wl,--end-group $solibs $libs
+  description = LINK $out
+  pool = link_pool
+rule stamp
+  command = ${postbuilds}touch $out
+  description = STAMP $out
+rule copy
+  command = ln -f $in $out 2>/dev/null || (rm -rf $out && cp -af $in $out)
+  description = COPY $in $out
+
+subninja obj/third_party/icu/copy_icudtl_dat.ninja
+subninja obj/third_party/icu/icuuc.ninja
+subninja obj/third_party/icu/icui18n.ninja
+subninja obj/testing/gtest_prod.ninja
+subninja obj/testing/gtest.ninja
+subninja obj/testing/gtest_main.ninja
+subninja obj/testing/gmock.ninja
+subninja obj/testing/gmock_main.ninja
+subninja obj/test/cctest/resources.ninja
+subninja obj/src/v8_libbase.ninja
+subninja obj/src/v8_libsampler.ninja
+subninja obj/src/v8_base.ninja
+subninja obj/src/v8_libplatform.ninja
+subninja obj/src/postmortem-metadata.ninja
+subninja obj/src/js2c.ninja
+subninja obj/src/v8_nosnapshot.ninja
+subninja obj/src/mksnapshot.ninja
+subninja obj/src/v8_snapshot.ninja
+subninja obj/src/natives_blob.ninja
+subninja obj/src/v8_external_snapshot.ninja
+subninja obj/src/v8_maybe_snapshot.ninja
+subninja obj/tools/parser-shell.ninja
+subninja obj/test/unittests/unittests.ninja
+subninja obj/test/fuzzer/fuzzer_support.ninja
+subninja obj/test/fuzzer/wasm_fuzzer_lib.ninja
+subninja obj/test/fuzzer/v8_simple_wasm_fuzzer.ninja
+subninja obj/test/fuzzer/wasm_asmjs_fuzzer_lib.ninja
+subninja obj/test/fuzzer/v8_simple_wasm_asmjs_fuzzer.ninja
+subninja obj/test/fuzzer/regexp_fuzzer_lib.ninja
+subninja obj/test/fuzzer/v8_simple_regexp_fuzzer.ninja
+subninja obj/test/fuzzer/parser_fuzzer_lib.ninja
+subninja obj/test/fuzzer/v8_simple_parser_fuzzer.ninja
+subninja obj/test/fuzzer/json_fuzzer_lib.ninja
+subninja obj/test/fuzzer/v8_simple_json_fuzzer.ninja
+subninja obj/test/cctest/generate-bytecode-expectations.ninja
+subninja obj/test/cctest/cctest.ninja
+subninja obj/samples/v8_shell.ninja
+subninja obj/samples/process.ninja
+subninja obj/samples/hello-world.ninja
+subninja obj/src/d8_js2c.ninja
+subninja obj/src/d8.ninja
+subninja obj/gypfiles/All.ninja
+
+# Short names for targets.
+build All: phony obj/gypfiles/All.actions_depends.stamp
+build copy_icudtl_dat: phony icudtl.dat
+build d8_js2c: phony gen/d8-js.cc
+build fuzzer_support: phony obj/test/fuzzer/libfuzzer_support.a
+build gmock: phony obj/testing/libgmock.a
+build gmock_main: phony obj/testing/libgmock_main.a
+build gtest: phony obj/testing/libgtest.a
+build gtest_main: phony obj/testing/libgtest_main.a
+build icudata: phony icudtl.dat
+build icui18n: phony obj/third_party/icu/libicui18n.a
+build icuuc: phony obj/third_party/icu/libicuuc.a
+build js2c: phony obj/src/js2c.actions_rules_copies.stamp
+build json_fuzzer_lib: phony obj/test/fuzzer/libjson_fuzzer_lib.a
+build natives_blob: phony natives_blob.bin
+build parser_fuzzer_lib: phony obj/test/fuzzer/libparser_fuzzer_lib.a
+build postmortem-metadata: phony gen/debug-support.cc
+build regexp_fuzzer_lib: phony obj/test/fuzzer/libregexp_fuzzer_lib.a
+build resources: phony gen/resources.cc
+build v8: phony obj/src/v8_maybe_snapshot.actions_depends.stamp
+build v8_base: phony obj/src/libv8_base.a
+build v8_external_snapshot: phony obj/src/libv8_external_snapshot.a
+build v8_libbase: phony obj/src/libv8_libbase.a
+build v8_libplatform: phony obj/src/libv8_libplatform.a
+build v8_libsampler: phony obj/src/libv8_libsampler.a
+build v8_maybe_snapshot: phony obj/src/v8_maybe_snapshot.actions_depends.stamp
+build v8_nosnapshot: phony obj/src/libv8_nosnapshot.a
+build v8_snapshot: phony obj/src/libv8_snapshot.a
+build wasm_asmjs_fuzzer_lib: phony obj/test/fuzzer/libwasm_asmjs_fuzzer_lib.a
+build wasm_fuzzer_lib: phony obj/test/fuzzer/libwasm_fuzzer_lib.a
+
+# Empty targets (output for completeness).
+build gtest_prod: phony
+
+build all: phony cctest d8 gen/d8-js.cc gen/resources.cc generate-bytecode-expectations hello-world icudtl.dat $
+    mksnapshot natives_blob.bin obj/gypfiles/All.actions_depends.stamp obj/src/js2c.actions_rules_copies.stamp $
+    obj/src/libv8_base.a obj/src/libv8_external_snapshot.a obj/src/libv8_libbase.a obj/src/libv8_libplatform.a $
+    obj/src/libv8_libsampler.a obj/src/libv8_nosnapshot.a obj/src/v8_maybe_snapshot.actions_depends.stamp $
+    obj/test/fuzzer/libfuzzer_support.a obj/test/fuzzer/libjson_fuzzer_lib.a obj/test/fuzzer/libparser_fuzzer_lib.a $
+    obj/test/fuzzer/libregexp_fuzzer_lib.a obj/test/fuzzer/libwasm_asmjs_fuzzer_lib.a $
+    obj/test/fuzzer/libwasm_fuzzer_lib.a obj/testing/libgmock.a obj/testing/libgtest.a $
+    obj/third_party/icu/libicui18n.a obj/third_party/icu/libicuuc.a parser-shell process unittests v8_shell $
+    v8_simple_json_fuzzer v8_simple_parser_fuzzer v8_simple_regexp_fuzzer v8_simple_wasm_asmjs_fuzzer $
+    v8_simple_wasm_fuzzer
+default all

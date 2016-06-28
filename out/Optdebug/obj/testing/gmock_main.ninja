@@ -1,0 +1,23 @@
+defines = -DCR_CLANG_REVISION=273743-1 -DV8_TARGET_ARCH_X64 $
+    -DGTEST_HAS_POSIX_RE=0 -DGTEST_LANG_CXX11=0 -DUNIT_TEST $
+    -DGTEST_HAS_RTTI=0 -DENABLE_DISASSEMBLER -DV8_ENABLE_CHECKS $
+    -DOBJECT_PRINT -DVERIFY_HEAP -DTRACE_MAPS -D_GLIBCXX_DEBUG=1
+includes = -I../../testing/gmock/include -I../../testing/gtest/include
+cflags = -Wno-unused-parameter -pthread -Wmissing-field-initializers $
+    -Wno-gnu-zero-variadic-macro-arguments -fvisibility=hidden $
+    -fcolor-diagnostics $
+    -B/home/harsha/v8/third_party/binutils/Linux_x64/Release/bin $
+    -Wno-undefined-var-template -Wno-deprecated-register $
+    -Wno-deprecated-declarations -Wno-logical-op-parentheses $
+    -Wno-tautological-compare -Wno-switch $
+    --sysroot=/home/harsha/v8/build/linux/debian_wheezy_amd64-sysroot -m64 $
+    -g -Woverloaded-virtual  -fdata-sections -ffunction-sections -O3
+cflags_c = 
+cflags_cc = -fno-exceptions -fno-rtti -std=gnu++11
+arflags = 
+
+build obj/testing/gmock/src/gmock_main.gmock_main.o: cxx $
+    ../../testing/gmock/src/gmock_main.cc
+
+build obj/testing/libgmock_main.a: alink_thin $
+    obj/testing/gmock/src/gmock_main.gmock_main.o
