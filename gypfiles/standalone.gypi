@@ -38,7 +38,7 @@
     # slowest: 0 - no tracking, 1 - track only the initial allocation site, 2
     # - track the chain of stores leading from allocation site to use site.
     'msan_track_origins%': 2,
-    'visibility%': 'hidden',
+    'visibility%': 'default',
     'v8_enable_backtrace%': 0,
     'v8_enable_i18n_support%': 1,
     'v8_deprecation_warnings': 1,
