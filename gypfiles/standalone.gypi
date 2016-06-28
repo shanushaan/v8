@@ -1005,8 +1005,8 @@
           'GCC_ENABLE_CPP_RTTI': 'NO',              # -fno-rtti
           'GCC_ENABLE_PASCAL_STRINGS': 'NO',        # No -mpascal-strings
           # GCC_INLINES_ARE_PRIVATE_EXTERN maps to -fvisibility-inlines-hidden
-          'GCC_INLINES_ARE_PRIVATE_EXTERN': 'YES',
-          'GCC_SYMBOLS_PRIVATE_EXTERN': 'YES',      # -fvisibility=hidden
+          'GCC_INLINES_ARE_PRIVATE_EXTERN': 'NO',
+          'GCC_SYMBOLS_PRIVATE_EXTERN': 'NO',      # -fvisibility=hidden
           'GCC_THREADSAFE_STATICS': 'NO',           # -fno-threadsafe-statics
           'GCC_WARN_NON_VIRTUAL_DESTRUCTOR': 'YES', # -Wnon-virtual-dtor
           # MACOSX_DEPLOYMENT_TARGET maps to -mmacosx-version-min

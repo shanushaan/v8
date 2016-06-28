@@ -713,7 +713,7 @@ class XcodeSettings(object):
       return None
     install_base = self.GetPerTargetSetting(
         'DYLIB_INSTALL_NAME_BASE',
-        default='/Library/Frameworks' if self._IsBundle() else '/usr/local/lib')
+        default='/Library/Frameworks' if self._IsBundle() else '@loader_path')
     return install_base
 
   def _StandardizePath(self, path):
