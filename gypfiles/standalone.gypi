@@ -390,8 +390,6 @@
     'variables': {
       'v8_code%': '<(v8_code)',
       'clang_warning_flags': [
-        # TODO(thakis): https://crbug.com/604888
-        '-Wno-undefined-var-template',
       ],
       'conditions':[
         ['OS=="android"', {

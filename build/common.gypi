@@ -2617,8 +2617,6 @@
         # TODO(thakis): Enable this, crbug.com/507717
         '-Wno-shift-negative-value',
 
-        # TODO(thakis): https://crbug.com/604888
-        '-Wno-undefined-var-template',
 
         # TODO(thakis): https://crbug.com/617318
         '-Wno-nonportable-include-path',
