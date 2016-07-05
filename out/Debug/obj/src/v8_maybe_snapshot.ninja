@@ -1,3 +1,0 @@
-build obj/src/v8_maybe_snapshot.actions_depends.stamp: stamp $
-    obj/src/libv8_base.a obj/src/libv8_external_snapshot.a
-
