@@ -190,11 +190,11 @@ def CopyDlls(target_dir, configuration, target_cpu):
 def _GetDesiredVsToolchainHashes():
   """Load a list of SHA1s corresponding to the toolchains that we want installed
   to build with."""
-  if os.environ.get('GYP_MSVS_VERSION') == '2015':
-    return ['49ae4b60d898182fc3f521c2fcda82c453915011']
-  else:
-    # Default to VS2013.
+  if os.environ.get('GYP_MSVS_VERSION') == '2013':
     return ['ee7d718ec60c2dc5d255bbe325909c2021a7efef']
+  else:
+    # Default to VS2015.
+    return ['49ae4b60d898182fc3f521c2fcda82c453915011']
 
 
 def Update(force=False):
