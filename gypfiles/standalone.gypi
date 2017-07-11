@@ -1075,7 +1075,7 @@
           ['werror==""', {
             'xcode_settings': {'GCC_TREAT_WARNINGS_AS_ERRORS': 'NO'},
           }, {
-            'xcode_settings': {'GCC_TREAT_WARNINGS_AS_ERRORS': 'YES'},
+            'xcode_settings': {'GCC_TREAT_WARNINGS_AS_ERRORS': 'NO'},
           }],
           ['clang==1', {
             'xcode_settings': {
