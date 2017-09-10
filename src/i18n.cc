@@ -12,6 +12,7 @@
 #include "src/isolate.h"
 #include "src/objects-inl.h"
 #include "src/string-case.h"
+#include "unicode/ustring.h"
 #include "unicode/brkiter.h"
 #include "unicode/bytestream.h"
 #include "unicode/calendar.h"
